@@ -12,28 +12,35 @@ Este é um portal web moderno desenvolvido em React para centralizar toda a docu
 
 ## ✨ Funcionalidades
 
-- **🎨 Design Moderno** - Interface clean e profissional
+- **🎨 Design Glassmorphism** - Interface moderna com efeitos de vidro e transparência
+- **🌈 Gradientes Elegantes** - Paleta de cores premium com gradientes suaves
 - **📱 Totalmente Responsivo** - Adaptável a todos os dispositivos
 - **🧭 Navegação Intuitiva** - Breadcrumbs e índices laterais
 - **⚡ Performance** - Carregamento rápido com Vite
 - **🔍 Índices Laterais** - Navegação fácil em documentos longos
 - **🎯 Acessibilidade** - Seguindo boas práticas de UX
 - **🔄 Escalável** - Arquitetura preparada para novos aplicativos
+- **✨ Efeitos Visuais** - Animações suaves e transições elegantes
+- **🎭 Componentes Reutilizáveis** - Sistema de design consistente
 
 ## 📁 Estrutura do Projeto
 
 ```text
 src/
 ├── components/
-│   ├── Header.jsx          # Cabeçalho da aplicação
-│   ├── Footer.jsx          # Rodapé da aplicação
+│   ├── Header.jsx          # Cabeçalho com design glassmorphism
+│   ├── Footer.jsx          # Rodapé elegante com gradientes
 │   ├── Layout.jsx          # Layout principal
-│   └── Breadcrumb.jsx      # Navegação breadcrumb
+│   ├── Breadcrumb.jsx      # Navegação breadcrumb estilizada
+│   ├── GlassCard.jsx       # Componente de card reutilizável
+│   ├── IconContainer.jsx   # Container para ícones estilizado
+│   └── LoadingSpinner.jsx  # Spinner de carregamento elegante
 ├── pages/
-│   ├── HomePage.jsx        # Página inicial
+│   ├── HomePage.jsx        # Página inicial com hero section premium
 │   └── as-bi/
-│       ├── TermosDeUsoPage.jsx
-│       └── PoliticaDePrivacidadePage.jsx
+│       ├── TermosDeUsoPage.jsx        # Termos com glassmorphism
+│       └── PoliticaDePrivacidadePage.jsx  # Política com design moderno
+├── assets/                 # Logos e recursos visuais
 └── App.jsx                 # Configuração das rotas
 ```
 

@@ -1,241 +1,403 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  Home,
+  BarChart3,
+  Lock,
+  Info,
+  CheckCircle,
+  FileText,
+  Mail,
+  Globe,
+  Phone,
+  PersonStanding,
+  Briefcase,
+  Database,
+  AlertTriangle,
+  Settings,
+  Shield,
+  Share,
+  Target,
+  Link2,
+  MessageSquare,
+  Users,
+  RotateCcw,
+  ChevronLeft,
+  ChevronRight,
+  List,
+} from "lucide-react";
 import Breadcrumb from "../../components/Breadcrumb";
 
 const PoliticaDePrivacidadePage = () => {
   const breadcrumbItems = [
-    { label: "Portal", href: "/", icon: "🏠" },
-    { label: "AS BI", href: "/", icon: "📊" },
-    { label: "Política de Privacidade", icon: "🔒" },
+    {
+      label: "Portal",
+      href: "/",
+      icon: <Home className="w-4 h-4" />,
+    },
+    {
+      label: "AS BI",
+      href: "/",
+      icon: <BarChart3 className="w-4 h-4" />,
+    },
+    {
+      label: "Política de Privacidade",
+      icon: <Lock className="w-4 h-4" />,
+    },
   ];
 
+  const SectionCard = ({ title, icon, children }) => (
+    <div className="glassmorphism-card p-6 border border-white/20 bg-white/80 hover:shadow-2xl transition-all duration-300">
+      <div className="flex items-center mb-4">
+        <div className="glassmorphism-card w-10 h-10 flex items-center justify-center mr-4 bg-gradient-to-br from-primary-500 to-primary-600 border border-white/30">
+          {icon}
+        </div>
+        <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
+      </div>
+      <div className="text-gray-600 leading-relaxed space-y-4">{children}</div>
+    </div>
+  );
+
+  const InfoTag = ({ text }) => (
+    <span className="inline-flex items-center px-3 py-1 glassmorphism-card text-xs font-medium bg-gradient-to-r from-accent-400/20 to-accent-600/20 text-accent-700 border border-white/30">
+      {text}
+    </span>
+  );
+
+  const AlertBox = ({ children, icon, type = "warning" }) => {
+    const colors = {
+      warning:
+        "from-yellow-400/20 to-yellow-600/20 text-yellow-700 border-yellow-300/30",
+      info: "from-blue-400/20 to-blue-600/20 text-blue-700 border-blue-300/30",
+      success:
+        "from-green-400/20 to-green-600/20 text-green-700 border-green-300/30",
+    };
+    return (
+      <div
+        className={`glassmorphism-card border-l-4 p-4 bg-gradient-to-r ${colors[type]} flex items-start border border-white/20`}
+        role="alert"
+      >
+        <div className="mr-3 text-xl">{icon}</div>
+        <div className="text-sm">{children}</div>
+      </div>
+    );
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          {/* Breadcrumb */}
-          <Breadcrumb items={breadcrumbItems} />
+    <div className="min-h-screen">
+      {/* Header Premium com Gradiente */}
+      <div className="relative overflow-hidden py-20">
+        {/* Background elegante */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-secondary-800 to-primary-900"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
 
-          {/* Header */}
-          <div className="text-center mb-8">
-            <div className="bg-blue-50 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">🔒</span>
+        {/* Overlay com pattern sutil */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform skew-y-6"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-8">
+              <Breadcrumb items={breadcrumbItems} />
             </div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-4">
-              Política de Privacidade do serviço AS BI
-            </h1>
-            <p className="text-lg text-gray-600">
-              <strong>Última atualização:</strong> 06 de junho de 2025
-            </p>
+
+            {/* Header Card com glassmorphism */}
+            <div className="glassmorphism-card p-8 text-center border border-white/20 bg-white/10">
+              <div className="glassmorphism-card inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-accent-400 to-accent-600 mb-6 border border-white/30">
+                <Lock className="w-12 h-12 text-white" />
+              </div>
+              <h1 className="text-4xl font-bold text-white mb-3">
+                Política de Privacidade do AS BI
+              </h1>
+              <p className="text-lg text-white/80">
+                <strong>Última atualização:</strong> 9 de junho de 2025
+              </p>
+            </div>
           </div>
+        </div>
+      </div>
 
-          {/* Conteúdo */}
-          <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-8">
-            <div className="prose max-w-none">
-              <p className="text-gray-800 leading-relaxed my-3">
-                Este Aplicativo recolhe alguns Dados Pessoais dos Usuários. Este
-                documento pode ser impresso para fins de consulta, através do
-                comando imprimir nas configurações de seu navegador.
-              </p>
+      {/* Conteúdo Principal */}
+      <div className="relative py-16">
+        {/* Background sutil */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
+        <div className="absolute inset-0 bg-white/60"></div>
 
-              <h2 className="text-2xl font-bold text-gray-800 mt-6 mb-3">
-                Proprietário e Controlador de Dados
-              </h2>
-              <p className="text-gray-800 leading-relaxed my-3">
-                Dep. Programação e Desenvolvimento/Aguiar Sistemas LTDA.
-                <br />
-                R. Amazonas, 605 - Nova Imperatriz, Imperatriz - MA, 65907-140.
-                <br />
-                <strong>E-mail de contato do Proprietário:</strong>{" "}
-                atendimento@aguiarsistemas.com.br
-              </p>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="space-y-8">
+              {/* Seções de conteúdo principais com glassmorphism */}
+              <SectionCard
+                title="Introdução"
+                icon={<Info className="w-5 h-5 text-white" />}
+              >
+                <p>
+                  Esta Política de Privacidade descreve como seus dados pessoais
+                  são coletados, usados e compartilhados quando você utiliza o
+                  aplicativo AS BI (o "Aplicativo").
+                </p>
+                <AlertBox icon="ℹ️" type="info">
+                  Esta política aplica-se especificamente ao aplicativo AS BI e
+                  pode diferir de outras políticas da Aguiar Sistemas.
+                </AlertBox>
+              </SectionCard>
 
-              <h2 className="text-2xl font-bold text-gray-800 mt-6 mb-3">
-                Tipos de Dados coletados
-              </h2>
-              <p className="text-gray-800 leading-relaxed my-3">
-                Entre os tipos de Dados Pessoais que este Aplicativo coleta, por
-                si mesmo ou através de terceiros, existem: Rastreadores; Dados
-                de uso; e-mail; informações do dispositivo; número de sessões;
-                duração da sessão; sistemas operacionais.
-              </p>
-              <p className="text-gray-800 leading-relaxed my-3">
-                Detalhes completos sobre cada tipo de Dados Pessoais coletados
-                são fornecidos nas seções dedicadas desta política de
-                privacidade ou por textos explicativos específicos exibidos
-                antes da coleta de Dados. Os Dados Pessoais poderão ser
-                fornecidos livremente pelo Usuário, ou, no caso dos Dados de
-                Utilização, coletados automaticamente ao se utilizar este
-                Aplicativo.
-              </p>
-              <p className="text-gray-800 leading-relaxed my-3">
-                A menos que especificado diferentemente, todos os Dados
-                solicitados por este Aplicativo são obrigatórios e a falta de
-                fornecimento destes Dados poderá impossibilitar este Aplicativo
-                de fornecer os seus Serviços. Os Usuários que tiverem dúvidas a
-                respeito de quais Dados Pessoais são obrigatórios estão
-                convidados a entrar em contato com o Proprietário.
-              </p>
-              <p className="text-gray-800 leading-relaxed my-3">
-                Os Usuários ficam responsáveis por quaisquer Dados Pessoais de
-                terceiros que forem obtidos, publicados ou compartilhados
-                através deste Serviço.
-              </p>
+              <SectionCard
+                title="Dados Pessoais Coletados"
+                icon={<Database className="w-5 h-5 text-white" />}
+              >
+                <p>
+                  Quando você utiliza o Aplicativo, coletamos as seguintes
+                  informações:
+                </p>
+                <div className="glassmorphism-card p-4 border border-white/20 bg-white/60">
+                  <h4 className="font-semibold text-gray-800 mb-2">
+                    Informações que você nos fornece:
+                  </h4>
+                  <ul className="list-disc list-inside space-y-2 text-gray-600">
+                    <li>Dados de cadastro (nome, e-mail, telefone)</li>
+                    <li>Credenciais de acesso ao sistema</li>
+                    <li>Informações de configuração do aplicativo</li>
+                  </ul>
+                </div>
+                <div className="glassmorphism-card p-4 border border-white/20 bg-white/60">
+                  <h4 className="font-semibold text-gray-800 mb-2">
+                    Informações coletadas automaticamente:
+                  </h4>
+                  <ul className="list-disc list-inside space-y-2 text-gray-600">
+                    <li>Dados de uso do aplicativo</li>
+                    <li>
+                      Informações do dispositivo (modelo, sistema operacional)
+                    </li>
+                    <li>Logs de acesso e atividade</li>
+                  </ul>
+                </div>
+              </SectionCard>
 
-              <h2 className="text-2xl font-bold text-gray-800 mt-6 mb-3">
-                Modo e local de processamento dos Dados
-              </h2>
-              <p className="text-gray-800 leading-relaxed my-3">
-                O Proprietário tomará as medidas de segurança adequadas para
-                impedir o acesso não autorizado, divulgação, alteração ou
-                destruição não autorizada dos Dados. O processamento dos Dados é
-                realizado utilizando computadores e/ou ferramentas de TI
-                habilitadas, seguindo procedimentos organizacionais e meios
-                estritamente relacionados com os fins indicados.
-              </p>
-              <p className="text-gray-800 leading-relaxed my-3">
-                Os dados são processados nas sedes de operação dos
-                Proprietários, e em quaisquer outros lugares onde as partes
-                envolvidas com o processamento estiverem localizadas.
-              </p>
-              <p className="text-gray-800 leading-relaxed my-3">
-                Salvo especificação em contrário, os Dados Pessoais serão
-                tratados e armazenados pelo tempo necessário para as finalidades
-                para as quais foram coletados, podendo ser retidos por mais
-                tempo em razão de obrigação legal ou com base no consentimento
-                dos Usuários.
-              </p>
+              <SectionCard
+                title="Como Usamos Seus Dados"
+                icon={<Target className="w-5 h-5 text-white" />}
+              >
+                <p>Utilizamos as informações coletadas para:</p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="glassmorphism-card p-4 border border-white/20 bg-white/60">
+                    <h4 className="font-semibold text-gray-800 mb-2">
+                      Funcionalidades:
+                    </h4>
+                    <ul className="list-disc list-inside space-y-1 text-gray-600 text-sm">
+                      <li>Fornecer acesso aos dados do sistema</li>
+                      <li>Personalizar a experiência do usuário</li>
+                      <li>Sincronizar dados entre dispositivos</li>
+                    </ul>
+                  </div>
+                  <div className="glassmorphism-card p-4 border border-white/20 bg-white/60">
+                    <h4 className="font-semibold text-gray-800 mb-2">
+                      Melhorias:
+                    </h4>
+                    <ul className="list-disc list-inside space-y-1 text-gray-600 text-sm">
+                      <li>Analisar uso para melhorias</li>
+                      <li>Fornecer suporte técnico</li>
+                      <li>Detectar e prevenir problemas</li>
+                    </ul>
+                  </div>
+                </div>
+              </SectionCard>
 
-              <h2 className="text-2xl font-bold text-gray-800 mt-6 mb-3">
-                As finalidades do processamento
-              </h2>
-              <p className="text-gray-800 leading-relaxed my-3">
-                Os Dados relativos ao Usuário são coletados para permitir que o
-                Proprietário preste seu Serviço, cumpra suas obrigações legais,
-                responda a solicitações de execução, proteja seus direitos e
-                interesses, detecte qualquer atividade maliciosa ou fraudulenta,
-                assim como para as seguintes finalidades: Estatísticas e
-                Gerenciamento de contactos e envio de mensagens.
-              </p>
+              <SectionCard
+                title="Compartilhamento de Dados"
+                icon={<Share className="w-5 h-5 text-white" />}
+              >
+                <AlertBox icon="🔒" type="success">
+                  Não compartilhamos seus dados pessoais com terceiros para fins
+                  comerciais ou publicitários.
+                </AlertBox>
+                <p>
+                  Podemos compartilhar informações apenas nos seguintes casos:
+                </p>
+                <ul className="list-disc list-inside space-y-2 text-gray-600">
+                  <li>Com seu consentimento explícito</li>
+                  <li>Para cumprir obrigações legais</li>
+                  <li>Para proteger nossos direitos e segurança</li>
+                  <li>
+                    Com prestadores de serviços que nos auxiliam (sob rigorosos
+                    termos de confidencialidade)
+                  </li>
+                </ul>
+              </SectionCard>
 
-              <h2 className="text-2xl font-bold text-gray-800 mt-6 mb-3">
-                Informações detalhadas sobre o processamento de Dados Pessoais
-              </h2>
+              <SectionCard
+                title="Segurança dos Dados"
+                icon={<Shield className="w-5 h-5 text-white" />}
+              >
+                <p>
+                  Implementamos medidas de segurança técnicas e organizacionais
+                  para proteger seus dados pessoais:
+                </p>
+                <div className="grid md:grid-cols-3 gap-4 mt-4">
+                  <div className="glassmorphism-card p-4 border border-white/20 bg-white/60 text-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <span className="text-2xl">🔐</span>
+                    </div>
+                    <h4 className="font-semibold text-gray-800 text-sm">
+                      Criptografia
+                    </h4>
+                    <p className="text-xs text-gray-600">
+                      Dados protegidos em trânsito e armazenamento
+                    </p>
+                  </div>
+                  <div className="glassmorphism-card p-4 border border-white/20 bg-white/60 text-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <span className="text-2xl">🛡️</span>
+                    </div>
+                    <h4 className="font-semibold text-gray-800 text-sm">
+                      Controle de Acesso
+                    </h4>
+                    <p className="text-xs text-gray-600">
+                      Acesso restrito e monitorado
+                    </p>
+                  </div>
+                  <div className="glassmorphism-card p-4 border border-white/20 bg-white/60 text-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-400/20 to-purple-600/20 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <span className="text-2xl">🔄</span>
+                    </div>
+                    <h4 className="font-semibold text-gray-800 text-sm">
+                      Backups Seguros
+                    </h4>
+                    <p className="text-xs text-gray-600">
+                      Cópias protegidas e recuperáveis
+                    </p>
+                  </div>
+                </div>
+              </SectionCard>
 
-              <h3 className="text-xl font-bold text-gray-800 mt-4 mb-2">
-                Estatísticas
-              </h3>
-              <p className="text-gray-800 leading-relaxed my-3">
-                Os serviços contidos nesta seção habilitam o Proprietário a
-                monitorar e analisar o tráfego da web e podem ser usados para
-                rastrear o comportamento do Usuário.
-              </p>
-              <p className="text-gray-800 leading-relaxed my-3">
-                <strong>Google Analytics para Firebase (Google LLC):</strong> É
-                um serviço de analítica fornecido pela Google LLC. Ele poderá
-                compartilhar Dados com outras ferramentas do Firebase, como
-                Crash Reporting, Authentication, etc.
-              </p>
-              <ul className="list-disc list-inside text-gray-800 space-y-1 my-3 ml-4">
-                <li>
-                  <strong>Dados Pessoais processados:</strong> Dados de uso;
-                  duração da sessão; informações do dispositivo; número de
-                  sessões; Rastreadores; sistemas operacionais.
-                </li>
-                <li>
-                  <strong>Lugar de processamento:</strong> EUA – Política de
-                  Privacidade.
-                </li>
-              </ul>
+              <SectionCard
+                title="Seus Direitos"
+                icon={<CheckCircle className="w-5 h-5 text-white" />}
+              >
+                <p>De acordo com a LGPD, você tem os seguintes direitos:</p>
+                <div className="glassmorphism-card p-4 border border-white/20 bg-white/60">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">
+                        Direitos de Acesso:
+                      </h4>
+                      <ul className="list-disc list-inside space-y-1 text-gray-600 text-sm">
+                        <li>Confirmação de tratamento de dados</li>
+                        <li>Acesso aos dados pessoais</li>
+                        <li>Correção de dados incompletos</li>
+                        <li>Anonimização ou eliminação</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">
+                        Direitos de Controle:
+                      </h4>
+                      <ul className="list-disc list-inside space-y-1 text-gray-600 text-sm">
+                        <li>Portabilidade dos dados</li>
+                        <li>Informação sobre compartilhamento</li>
+                        <li>Revogação do consentimento</li>
+                        <li>Oposição ao tratamento</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <AlertBox icon="📧" type="info">
+                  Para exercer seus direitos, entre em contato conosco através
+                  do e-mail:{" "}
+                  <a
+                    href="mailto:lgpd@aguiarsistemas.com.br"
+                    className="font-semibold"
+                  >
+                    lgpd@aguiarsistemas.com.br
+                  </a>
+                </AlertBox>
+              </SectionCard>
 
-              <h3 className="text-xl font-bold text-gray-800 mt-4 mb-2">
-                Gerenciamento de contactos e envio de mensagens
-              </h3>
-              <p className="text-gray-800 leading-relaxed my-3">
-                <strong>Firebase Cloud Messaging (Google LLC):</strong> É um
-                serviço de envio de mensagens que permite ao Proprietário enviar
-                mensagens e notificações para os Usuários através de plataformas
-                como Android e iOS.
-              </p>
-              <ul className="list-disc list-inside text-gray-800 space-y-1 my-3 ml-4">
-                <li>
-                  <strong>Dados Pessoais processados:</strong> Vários tipos de
-                  Dados como especificados na política de privacidade do
-                  serviço.
-                </li>
-                <li>
-                  <strong>Lugar de processamento:</strong> Brasil – Política de
-                  Privacidade.
-                </li>
-              </ul>
+              <SectionCard
+                title="Contato"
+                icon={<Mail className="w-5 h-5 text-white" />}
+              >
+                <p>
+                  Para dúvidas sobre esta Política de Privacidade, entre em
+                  contato:
+                </p>
+                <div className="glassmorphism-card p-4 border border-white/20 bg-white/60">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">
+                        Dados da Empresa:
+                      </h4>
+                      <ul className="space-y-1 text-gray-600 text-sm">
+                        <li>
+                          <strong>Razão Social:</strong> AGUIAR SISTEMAS LTDA ME
+                        </li>
+                        <li>
+                          <strong>CNPJ:</strong> 05.295.417/0001-42
+                        </li>
+                        <li>
+                          <strong>Endereço:</strong> Rua Amazonas, 605, Nova
+                          Imperatriz, Imperatriz - MA
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">
+                        Contatos:
+                      </h4>
+                      <ul className="space-y-1 text-gray-600 text-sm">
+                        <li>
+                          <strong>E-mail Geral:</strong>{" "}
+                          comercial@aguiarsistemas.com.br
+                        </li>
+                        <li>
+                          <strong>E-mail LGPD:</strong>{" "}
+                          lgpd@aguiarsistemas.com.br
+                        </li>
+                        <li>
+                          <strong>Telefone:</strong> (99) 3529-9993
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </SectionCard>
 
-              <h2 className="text-2xl font-bold text-gray-800 mt-6 mb-3">
-                Política de Cookies
-              </h2>
-              <p className="text-gray-800 leading-relaxed my-3">
-                Este Aplicativo usa Rastreadores. Para saber mais, os Usuários
-                poderão consultar a Política de Cookies.
-              </p>
+              <SectionCard
+                title="Alterações nesta Política"
+                icon={<RotateCcw className="w-5 h-5 text-white" />}
+              >
+                <p>
+                  Podemos atualizar esta Política de Privacidade periodicamente.
+                  Quando fizermos isso, revisaremos a data da "última
+                  atualização" no topo desta página e notificaremos você de
+                  alterações significativas.
+                </p>
+                <AlertBox icon="🔔" type="warning">
+                  Recomendamos que você revise esta política periodicamente para
+                  se manter informado sobre como estamos protegendo suas
+                  informações.
+                </AlertBox>
+              </SectionCard>
 
-              <h2 className="text-2xl font-bold text-gray-800 mt-6 mb-3">
-                Os direitos dos Usuários
-              </h2>
-              <p className="text-gray-800 leading-relaxed my-3">
-                Os Usuários poderão exercer determinados direitos a respeito dos
-                seus Dados processados pelo Proprietário. Em especial, possuem
-                os direitos a:
-              </p>
-              <ul className="list-disc list-inside text-gray-800 space-y-2 my-3 ml-4">
-                <li>Retirar a sua anuência a qualquer momento.</li>
-                <li>Objetar o processamento dos seus Dados.</li>
-                <li>Acessar os seus Dados.</li>
-                <li>Verificar e pedir retificação.</li>
-                <li>Restringir o processamento dos seus Dados.</li>
-                <li>Ter os seus Dados Pessoais apagados ou retirados.</li>
-                <li>
-                  Receber os seus Dados e ter os mesmos transferidos para outro
-                  controlador.
-                </li>
-                <li>Registrar uma reclamação.</li>
-              </ul>
-
-              <h2 className="text-2xl font-bold text-gray-800 mt-6 mb-3">
-                Como exercer estes direitos
-              </h2>
-              <p className="text-gray-800 leading-relaxed my-3">
-                Quaisquer solicitações para exercer os direitos do Usuário podem
-                ser encaminhadas ao Proprietário por meio dos detalhes de
-                contato fornecidos neste documento. Tais pedidos são gratuitos e
-                serão atendidos pelo Proprietário com a maior brevidade
-                possível.
-              </p>
-
-              <h2 className="text-2xl font-bold text-gray-800 mt-6 mb-3">
-                Mudanças nesta política de privacidade
-              </h2>
-              <p className="text-gray-800 leading-relaxed my-3">
-                O Proprietário se reserva o direito de fazer alterações nesta
-                política de privacidade a qualquer momento, através de
-                notificação a seus Usuários nesta página e/ou dentro deste
-                Serviço.
-              </p>
-            </div>
-
-            {/* Navegação entre documentos */}
-            <div className="mt-12 pt-8 border-t border-gray-200">
-              <div className="flex justify-between items-center">
-                <Link
-                  to="/as-bi/termos-de-uso"
-                  className="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors duration-200"
-                >
-                  <span className="mr-2">←</span> Termos de Uso
-                </Link>
-                <Link
-                  to="/"
-                  className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200"
-                >
-                  Voltar ao Portal <span className="ml-2">→</span>
-                </Link>
+              {/* Navegação entre documentos com glassmorphism */}
+              <div className="mt-12 glassmorphism-card p-6 border border-white/20 bg-white/80">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+                  <Link
+                    to="/as-bi/termos-de-uso"
+                    className="group glassmorphism-card px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-600 text-white border border-white/30 hover:from-gray-600 hover:to-gray-700 transition-all duration-300 w-full sm:w-auto text-center"
+                  >
+                    <ChevronLeft className="w-4 h-4 mr-2 inline group-hover:-translate-x-1 transition-transform duration-300" />
+                    Termos de Uso
+                  </Link>
+                  <Link
+                    to="/"
+                    className="group glassmorphism-card px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white border border-white/30 hover:from-primary-700 hover:to-primary-800 transition-all duration-300 w-full sm:w-auto text-center"
+                  >
+                    Voltar ao Portal
+                    <ChevronRight className="w-4 h-4 ml-2 inline group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

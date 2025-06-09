@@ -15,10 +15,10 @@ const Footer = () => {
 
   return (
     <footer className="relative overflow-hidden">
-      {/* Background mais sólido para melhor legibilidade */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-secondary-800 to-primary-900"></div>
-      <div className="absolute inset-0 bg-black/40"></div>{" "}
-      {/* Aumentado de 20% para 40% */}
+      {/* Background com gradiente */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-secondary-900 to-primary-800"></div>
+      <div className="absolute inset-0 bg-black/20"></div>
+
       <div className="relative z-10 container mx-auto px-6 py-16">
         <div className="grid md:grid-cols-3 gap-12">
           {/* Informações da empresa */}
@@ -80,7 +80,7 @@ const Footer = () => {
                   href="mailto:suporte@aguiarsistemas.com.br"
                   className="text-white/70 hover:text-white transition-all duration-300 flex items-center group"
                 >
-                  <div className="w-2 h-2 rounded-full bg-accent-400 mr-3 group-hover:scale-125 transition-transform duration-300"></div>
+                  <div className="w-2 h-2 rounded-full bg-accent mr-3 group-hover:scale-125 transition-transform duration-300"></div>
                   Suporte Técnico
                 </a>
               </li>

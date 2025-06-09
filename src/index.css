@@ -1,3 +1,327 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    font-family: theme("fontFamily.sans");
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-attachment: fixed;
+    color: theme("colors.on-background");
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: theme("fontFamily.display");
+    color: theme("colors.primary.dark");
+    font-weight: 600; /* Peso mais forte para títulos */
+  }
+  a {
+    color: theme("colors.primary.DEFAULT");
+    font-weight: 500;
+  }
+  a:hover {
+    color: theme("colors.primary.light");
+  }
+}
+
+@layer components {
+  .material-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: theme("borderRadius.2xl");
+    padding: theme("spacing.8");
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .material-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    border-color: rgba(25, 118, 210, 0.3);
+  }
+
+  .glassmorphism-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: theme("borderRadius.3xl");
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-primary {
+    background: linear-gradient(
+      135deg,
+      theme("colors.primary.DEFAULT"),
+      theme("colors.primary.light")
+    );
+    color: theme("colors.on-primary");
+    padding: theme("spacing.4") theme("spacing.8");
+    border-radius: theme("borderRadius.xl");
+    font-weight: theme("fontWeight.semibold");
+    letter-spacing: theme("letterSpacing.wide");
+    box-shadow: 0 4px 20px rgba(25, 118, 210, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(25, 118, 210, 0.4);
+  }
+
+  .btn-secondary {
+    background: linear-gradient(
+      135deg,
+      theme("colors.secondary.DEFAULT"),
+      theme("colors.secondary.light")
+    );
+    color: white; /* Garantindo texto branco para melhor contraste */
+    padding: theme("spacing.4") theme("spacing.8");
+    border-radius: theme("borderRadius.xl");
+    font-weight: theme("fontWeight.semibold");
+    letter-spacing: theme("letterSpacing.wide");
+    box-shadow: 0 4px 20px rgba(55, 71, 79, 0.3); /* Ajustado para nova cor secondary */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-secondary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .btn-secondary:hover::before {
+    left: 100%;
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(55, 71, 79, 0.4); /* Ajustado para nova cor secondary */
+  }
+
+  .icon-container {
+    background: linear-gradient(
+      135deg,
+      theme("colors.primary.50"),
+      rgba(25, 118, 210, 0.1)
+    );
+    border-radius: theme("borderRadius.2xl");
+    padding: theme("spacing.4");
+    box-shadow: 0 4px 20px rgba(25, 118, 210, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .icon-container:hover {
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 0 8px 30px rgba(25, 118, 210, 0.25);
+  }
+
+  /* Classe para ícones Bootstrap (substituindo .material-icon) */
+  .bs-icon {
+    /* Estilos base para ícones Bootstrap já são fornecidos pela importação CSS */
+    /* Você pode adicionar estilos específicos aqui se necessário, como tamanho ou cor */
+    font-size: 1.25rem; /* Exemplo de ajuste de tamanho, Material Design usa 24px, Bootstrap Icons podem precisar de ajuste */
+    vertical-align: middle; /* Alinhamento vertical melhorado */
+  }
+
+  /* Ajuste para que os ícones dentro de botões e links herdem a cor do texto */
+  .btn-primary .bs-icon,
+  .btn-secondary .bs-icon,
+  a .bs-icon {
+    color: inherit;
+  }
+
+  /* Utilitários adicionais Material Design */
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: theme("borderRadius.2xl");
+  }
+
+  .glassmorphism-dark {
+    background: rgba(25, 118, 210, 0.85); /* Aumentado de 0.1 para 0.85 */
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Aumentado de 0.1 para 0.2 */
+    border-radius: theme("borderRadius.2xl");
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      theme("colors.primary.DEFAULT"),
+      theme("colors.accent.DEFAULT")
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animações Material Design */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Estados de foco Material Design */
+  .focus-ring {
+    outline: 2px solid theme("colors.primary.DEFAULT");
+    outline-offset: 2px;
+  }
+
+  /* Tipografia adicional */
+  .text-display-1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+  }
+
+  .text-display-2 {
+    font-size: 2.8rem;
+    line-height: 1.25;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .text-headline {
+    font-size: 1.5rem;
+    line-height: 1.33;
+    font-weight: 500;
+  }
+
+  .text-subhead {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+}
+
+@layer utilities {
+  /* Utilitários personalizados */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Animações keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(25, 118, 210, 0.3);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(25, 118, 210, 0.6);
+  }
+}
+
+/* Scroll personalizado Material Design */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eceff1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9e9e9e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #757575;
+}
