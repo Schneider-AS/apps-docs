@@ -178,7 +178,7 @@ const TermosDeUsoPage = () => {
   ];
   return (
     <div className="min-h-screen bg-github-canvas-default">
-      <div className="container-narrow py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
           <Breadcrumb items={breadcrumbItems} className="mb-6" />
@@ -240,7 +240,7 @@ const TermosDeUsoPage = () => {
                 </h2>
               </div>
 
-              <div className="prose prose-gray max-w-none text-github-fg-default">
+              <div className="prose prose-gray text-github-fg-default">
                 {section.content}
               </div>
             </GlassCard>

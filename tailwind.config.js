@@ -5,39 +5,39 @@ export default {
   theme: {
     extend: {
       colors: {
-        // GitHub Theme Colors - Automatically switches with dark mode
+        // GitHub Theme Colors - Using CSS Variables for automatic theme switching
         github: {
           canvas: {
-            default: "rgb(255 255 255 / <alpha-value>)",
-            overlay: "rgb(255 255 255 / <alpha-value>)",
-            subtle: "rgb(246 248 250 / <alpha-value>)",
+            default: "rgb(var(--github-canvas-default) / <alpha-value>)",
+            overlay: "rgb(var(--github-canvas-overlay) / <alpha-value>)",
+            subtle: "rgb(var(--github-canvas-subtle) / <alpha-value>)",
           },
           fg: {
-            default: "rgb(31 35 40 / <alpha-value>)",
-            muted: "rgb(101 109 118 / <alpha-value>)",
+            default: "rgb(var(--github-fg-default) / <alpha-value>)",
+            muted: "rgb(var(--github-fg-muted) / <alpha-value>)",
           },
           border: {
-            default: "rgb(209 217 224 / <alpha-value>)",
-            muted: "rgb(216 222 228 / <alpha-value>)",
-            emphasis: "rgb(31 111 235 / <alpha-value>)",
+            default: "rgb(var(--github-border-default) / <alpha-value>)",
+            muted: "rgb(var(--github-border-muted) / <alpha-value>)",
+            emphasis: "rgb(var(--github-accent-emphasis) / <alpha-value>)",
           },
           accent: {
-            emphasis: "rgb(31 111 235 / <alpha-value>)",
-            fg: "rgb(47 129 247 / <alpha-value>)",
+            emphasis: "rgb(var(--github-accent-emphasis) / <alpha-value>)",
+            fg: "rgb(var(--github-accent-fg) / <alpha-value>)",
           },
           success: {
-            emphasis: "rgb(35 134 54 / <alpha-value>)",
-            fg: "rgb(63 185 80 / <alpha-value>)",
-            subtle: "rgb(35 134 54 / 0.15)",
+            emphasis: "rgb(var(--github-success-fg) / <alpha-value>)",
+            fg: "rgb(var(--github-success-fg) / <alpha-value>)",
+            subtle: "rgb(var(--github-success-fg) / 0.15)",
           },
           attention: {
-            emphasis: "rgb(154 103 0 / <alpha-value>)",
-            fg: "rgb(210 153 34 / <alpha-value>)",
-            subtle: "rgb(154 103 0 / 0.15)",
+            emphasis: "rgb(var(--github-attention-fg) / <alpha-value>)",
+            fg: "rgb(var(--github-attention-fg) / <alpha-value>)",
+            subtle: "rgb(var(--github-attention-fg) / 0.15)",
           },
           danger: {
-            emphasis: "rgb(207 34 46 / <alpha-value>)",
-            fg: "rgb(248 81 73 / <alpha-value>)",
+            emphasis: "rgb(var(--github-danger-fg) / <alpha-value>)",
+            fg: "rgb(var(--github-danger-fg) / <alpha-value>)",
           },
         },
         primary: {

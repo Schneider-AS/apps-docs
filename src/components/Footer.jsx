@@ -88,7 +88,7 @@ const Footer = () => {
 
             <div className="flex items-center text-sm text-github-fg-muted mb-4">
               <MapPin className="w-4 h-4 mr-2" />
-              João Pessoa, Paraíba - Brasil
+              Imperatriz, Maranhão - Brasil
             </div>
 
             {/* Social Links */}
@@ -185,7 +185,7 @@ const Footer = () => {
             <div className="flex items-center text-sm text-github-fg-muted">
               <span>Feito com</span>
               <Heart className="w-4 h-4 mx-1 text-github-danger-fg" />
-              <span>em João Pessoa, PB</span>
+              <span>em Imperatriz, MA</span>
             </div>
           </div>
 

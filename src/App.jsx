@@ -7,7 +7,7 @@ import PoliticaDePrivacidadePage from "./pages/as-bi/PoliticaDePrivacidadePage";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/apps-docs">
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />

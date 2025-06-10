@@ -124,7 +124,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2 text-white/60">
               <span>Feito com</span>
               <Heart className="w-4 h-4 text-red-400 animate-pulse" />
-              <span>em João Pessoa, PB</span>
+              <span>em Imperatriz, MA</span>
             </div>
           </div>
         </div>

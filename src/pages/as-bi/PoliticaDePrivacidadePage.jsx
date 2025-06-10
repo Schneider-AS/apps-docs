@@ -328,7 +328,7 @@ const PoliticaDePrivacidadePage = () => {
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-github-fg-muted" />
-                <span>privacidade@aguiarsistemas.com.br</span>
+                <span>suporte@aguiarsistemas.com.br</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Globe className="w-4 h-4 text-github-fg-muted" />
@@ -359,7 +359,7 @@ const PoliticaDePrivacidadePage = () => {
                 <Mail className="w-5 h-5 text-github-fg-muted" />
                 <div>
                   <span className="font-medium">E-mail:</span>
-                  <span className="ml-2">dpo@aguiarsistemas.com.br</span>
+                  <span className="ml-2">suporte@aguiarsistemas.com.br</span>
                 </div>
               </div>
 
@@ -378,7 +378,7 @@ const PoliticaDePrivacidadePage = () => {
                   <address className="ml-2 not-italic text-github-fg-muted">
                     Aguiar Sistemas LTDA
                     <br />
-                    João Pessoa, PB - Brasil
+                    Imperatriz, MA - Brasil
                   </address>
                 </div>
               </div>
@@ -394,7 +394,7 @@ const PoliticaDePrivacidadePage = () => {
   ];
   return (
     <div className="min-h-screen bg-github-canvas-default">
-      <div className="container-narrow py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
           <Breadcrumb items={breadcrumbItems} className="mb-6" />
@@ -456,7 +456,7 @@ const PoliticaDePrivacidadePage = () => {
                 </h2>
               </div>
 
-              <div className="prose prose-gray max-w-none text-github-fg-default">
+              <div className="prose prose-gray text-github-fg-default">
                 {section.content}
               </div>
             </GlassCard>

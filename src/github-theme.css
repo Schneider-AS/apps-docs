@@ -73,6 +73,27 @@
     background-color: rgb(var(--github-canvas-subtle));
   }
 
+  /* Adicionando variantes com transparência para melhor integração */
+  .bg-github-canvas-default\/95 {
+    background-color: rgb(var(--github-canvas-default) / 0.95);
+  }
+
+  .bg-github-canvas-subtle\/95 {
+    background-color: rgb(var(--github-canvas-subtle) / 0.95);
+  }
+
+  .bg-github-canvas-overlay\/50 {
+    background-color: rgb(var(--github-canvas-overlay) / 0.5);
+  }
+
+  .bg-github-canvas-subtle\/50 {
+    background-color: rgb(var(--github-canvas-subtle) / 0.5);
+  }
+
+  .bg-github-canvas-overlay\/30 {
+    background-color: rgb(var(--github-canvas-overlay) / 0.3);
+  }
+
   .text-github-fg-default {
     color: rgb(var(--github-fg-default));
   }
@@ -200,37 +221,77 @@
   animation: pulse-soft 2s ease-in-out infinite;
 }
 
-/* Container responsive utilitário */
+/* ===== SISTEMA DE PARTÍCULAS SIMPLES ===== */
+
+/* Animação principal de flutuação das partículas */
+@keyframes particle-float {
+  0% {
+    transform: translate(-50%, -50%) translateY(0px) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-5px) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0px) scale(1);
+  }
+}
+
+/* Efeito de brilho suave para partículas */
+.particle-glow {
+  filter: drop-shadow(0 0 4px currentColor);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.particle-glow:hover {
+  filter: drop-shadow(0 0 8px currentColor) brightness(1.2);
+}
+
+/* Performance optimizations */
+.particle-layer {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth transitions para mouse interactions */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== CONTAINER RESPONSIVO PARA DOCUMENTAÇÃO ===== */
 .container-narrow {
-  max-width: 56rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  max-width: 42rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Sobrescrever qualquer classe Tailwind que possa interferir */
+.container-narrow * {
+  box-sizing: border-box;
+}
+
+/* ===== RESPONSIVIDADE MOBILE FIRST ===== */
+@media (max-width: 480px) {
+  .container-narrow {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
 }
 
 @media (min-width: 640px) {
   .container-narrow {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2.5rem !important;
+    padding-right: 2.5rem !important;
   }
 }
 
 @media (min-width: 1024px) {
   .container-narrow {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
   }
-}
-
-/* Melhoramentos de acessibilidade */
-.focus\:outline-github:focus {
-  outline: 2px solid rgb(var(--github-accent-emphasis));
-  outline-offset: 2px;
-}
-
-/* Dark mode helpers */
-.dark-mode-transition {
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease;
 }
