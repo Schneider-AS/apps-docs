@@ -1,41 +1,46 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Home } from "lucide-react";
 
-const Breadcrumb = ({ items }) => {
-  if (!items || items.length === 0) {
-    return null;
-  }
+const Breadcrumb = ({ items = [], className = "", showHome = true }) => {
+  const allItems = showHome
+    ? [{ label: "Início", href: "/", icon: Home }, ...items]
+    : items;
 
+  if (allItems.length === 0) return null;
   return (
     <nav
-      className="mb-8 glassmorphism-card p-4 shadow-lg"
+      className={`text-github-fg-muted ${className}`}
       aria-label="Breadcrumb"
     >
-      <ol className="flex items-center space-x-2 text-sm">
-        {items.map((item, index) => (
-          <li key={index} className="flex items-center">
-            {index > 0 && (
-              <span className="mx-3 text-text-tertiary">
-                <ChevronRight className="w-4 h-4 text-primary-400" />
-              </span>
-            )}
-            {item.href ? (
-              <Link
-                to={item.href}
-                className="text-primary-600 hover:text-primary-700 transition-all duration-300 flex items-center font-medium hover:bg-primary-50 px-3 py-2 rounded-lg"
-              >
-                {item.icon && <span className="mr-2">{item.icon}</span>}
-                {item.label}
-              </Link>
-            ) : (
-              <span className="text-text-primary font-semibold flex items-center bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-4 py-2 rounded-xl shadow-md">
-                {item.icon && <span className="mr-2">{item.icon}</span>}
-                {item.label}
-              </span>
-            )}
-          </li>
-        ))}
+      <ol className="flex items-center space-x-2">
+        {allItems.map((item, index) => {
+          const isLast = index === allItems.length - 1;
+          const isFirst = index === 0;
+
+          return (
+            <li key={index} className="flex items-center">
+              {!isFirst && (
+                <ChevronRight className="w-4 h-4 mx-2 text-github-fg-muted" />
+              )}
+
+              {isLast ? (
+                <span className="flex items-center text-github-fg-default font-medium">
+                  {item.icon && <item.icon className="w-4 h-4 mr-2" />}
+                  {item.label}
+                </span>
+              ) : (
+                <Link
+                  to={item.href}
+                  className="flex items-center text-github-fg-muted hover:text-github-fg-default transition-colors duration-200 rounded px-2 py-1 -mx-2 hover:bg-github-canvas-subtle"
+                >
+                  {item.icon && <item.icon className="w-4 h-4 mr-2" />}
+                  {item.label}
+                </Link>
+              )}
+            </li>
+          );
+        })}
       </ol>
     </nav>
   );

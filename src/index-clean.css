@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    border-color: theme("colors.gray.600");
+  }
+
+  body {
+    @apply bg-gray-900 text-gray-100 font-sans antialiased min-h-screen;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-gray-100 font-semibold tracking-tight;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1 {
+    @apply text-4xl lg:text-5xl font-bold;
+  }
+  h2 {
+    @apply text-3xl lg:text-4xl;
+  }
+  h3 {
+    @apply text-2xl lg:text-3xl;
+  }
+  h4 {
+    @apply text-xl lg:text-2xl;
+  }
+  h5 {
+    @apply text-lg lg:text-xl;
+  }
+  h6 {
+    @apply text-base lg:text-lg;
+  }
+
+  p {
+    @apply text-gray-700 leading-relaxed;
+  }
+
+  code {
+    @apply font-mono text-sm bg-gray-100 px-1.5 py-0.5 rounded;
+  }
+
+  pre {
+    @apply font-mono text-sm bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto;
+  }
+}
+
+@layer components {
+  /* GitHub-inspired Card */
+  .card {
+    @apply bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .card-header {
+    @apply p-6 border-b border-gray-200;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  .card-footer {
+    @apply p-6 border-t border-gray-200 bg-gray-50;
+  }
+
+  /* GitHub-inspired Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+
+  .btn-md {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .btn-lg {
+    @apply px-6 py-3 text-base;
+  }
+
+  .btn-primary {
+    @apply btn btn-md bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply btn btn-md bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500 shadow-sm;
+  }
+
+  .btn-outline {
+    @apply btn btn-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-blue-500 shadow-sm;
+  }
+
+  .btn-ghost {
+    @apply btn btn-md text-gray-700 hover:bg-gray-100 focus:ring-blue-500;
+  }
+
+  .btn-success {
+    @apply btn btn-md bg-green-600 text-white hover:bg-green-700 focus:ring-green-500 shadow-sm;
+  }
+
+  /* GitHub-inspired Links */
+  .link {
+    @apply text-blue-600 hover:text-blue-800 transition-colors duration-200 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded;
+  }
+
+  .link-muted {
+    @apply text-gray-600 hover:text-gray-800 transition-colors duration-200 hover:underline;
+  }
+
+  /* GitHub-inspired Form Elements */
+  .input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200;
+  }
+
+  /* GitHub-inspired Navigation */
+  .nav-header {
+    @apply bg-white border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm bg-white/95;
+  }
+
+  .nav-item {
+    @apply text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+  }
+
+  .nav-item-active {
+    @apply nav-item text-gray-900 bg-gray-100;
+  }
+
+  /* GitHub-inspired Badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply badge bg-blue-100 text-blue-800;
+  }
+
+  .badge-secondary {
+    @apply badge bg-gray-100 text-gray-800;
+  }
+
+  .badge-success {
+    @apply badge bg-green-100 text-green-800;
+  }
+
+  .badge-warning {
+    @apply badge bg-yellow-100 text-yellow-800;
+  }
+
+  /* Container Utilities */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* GitHub-inspired Hero Section */
+  .hero {
+    @apply bg-gradient-to-br from-gray-50 to-blue-50 py-16 lg:py-24;
+  }
+
+  .hero-title {
+    @apply text-4xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-6;
+  }
+
+  .hero-subtitle {
+    @apply text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    @apply flex items-center space-x-2 text-sm;
+  }
+
+  .breadcrumb-item {
+    @apply text-gray-600 hover:text-gray-900 transition-colors duration-200;
+  }
+
+  .breadcrumb-separator {
+    @apply text-gray-400;
+  }
+
+  /* Focus Ring for Accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+}
+
+@layer utilities {
+  /* Text Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

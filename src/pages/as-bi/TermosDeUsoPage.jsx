@@ -8,230 +8,262 @@ import {
   Smartphone,
   CheckSquare,
   Users,
-  ArrowLeftCircle,
-  ArrowRightCircle,
+  ArrowLeft,
+  ExternalLink,
+  Calendar,
+  Shield,
 } from "lucide-react";
 import Breadcrumb from "../../components/Breadcrumb";
-
-// Componente SectionCard com estética glassmorphism
-const SectionCard = ({ title, icon, children, className }) => (
-  <div
-    className={`glassmorphism-card p-6 border border-white/20 bg-white/80 hover:shadow-2xl transition-all duration-300 ${
-      className || ""
-    }`}
-  >
-    {title && (
-      <div className="flex items-center mb-4">
-        {icon && (
-          <div className="glassmorphism-card w-10 h-10 flex items-center justify-center mr-4 bg-gradient-to-br from-primary-500 to-primary-600 border border-white/30">
-            {icon}
-          </div>
-        )}
-        <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
-      </div>
-    )}
-    <div className="text-gray-600 leading-relaxed space-y-4">{children}</div>
-  </div>
-);
+import GlassCard from "../../components/GlassCard";
+import IconContainer from "../../components/IconContainer";
 
 const TermosDeUsoPage = () => {
   const breadcrumbItems = [
     {
-      label: "Portal",
-      href: "/",
-      icon: <Home className="w-4 h-4" />,
-    },
-    {
       label: "AS BI",
       href: "/",
-      icon: <BarChart3 className="w-4 h-4" />,
     },
     {
       label: "Termos de Uso",
-      icon: <FileText className="w-4 h-4" />,
     },
   ];
 
-  return (
-    <div className="min-h-screen">
-      {/* Header Premium com Gradiente */}
-      <div className="relative overflow-hidden py-20">
-        {/* Background elegante */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-secondary-800 to-primary-900"></div>
-        <div className="absolute inset-0 bg-black/30"></div>
-
-        {/* Overlay com pattern sutil */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform skew-y-6"></div>
+  const sections = [
+    {
+      id: "introducao",
+      title: "1. Introdução",
+      icon: Info,
+      content: (
+        <div className="space-y-4">
+          <p>
+            Bem-vindo ao AS BI (Aguiar Sistemas Business Intelligence). Estes
+            Termos de Uso estabelecem as condições gerais de utilização da nossa
+            plataforma de análise de dados e business intelligence.
+          </p>
+          <p>
+            Ao acessar ou utilizar o AS BI, você concorda em cumprir estes
+            termos. Se não concordar com qualquer parte destes termos, não
+            utilize nossa plataforma.
+          </p>
         </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-8">
-              <Breadcrumb items={breadcrumbItems} />
-            </div>
-
-            {/* Header Card com glassmorphism */}
-            <div className="glassmorphism-card p-8 text-center border border-white/20 bg-white/10">
-              <div className="glassmorphism-card inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-accent-400 to-accent-600 mb-6 border border-white/30">
-                <FileText className="w-8 h-8 text-white" />
-              </div>
-              <h1 className="text-4xl font-bold text-white mb-3">
-                Termos de Uso do Aplicativo AS BI MOBILE
-              </h1>
-              <p className="text-lg text-white/80">
-                Última atualização: 9 de junho de 2025
-              </p>
-            </div>
+      ),
+    },
+    {
+      id: "definicoes",
+      title: "2. Definições",
+      icon: FileText,
+      content: (
+        <div className="space-y-4">
+          {" "}
+          <div>
+            <h4 className="font-semibold text-github-fg-default mb-2">
+              AS BI:
+            </h4>
+            <p>
+              Plataforma de Business Intelligence desenvolvida pela Aguiar
+              Sistemas LTDA.
+            </p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-github-fg-default mb-2">
+              Usuário:
+            </h4>
+            <p>
+              Qualquer pessoa física ou jurídica que acesse ou utilize a
+              plataforma AS BI.
+            </p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-github-fg-default mb-2">
+              Dados:
+            </h4>
+            <p>
+              Informações inseridas, processadas ou armazenadas na plataforma
+              pelo usuário.
+            </p>
           </div>
         </div>
-      </div>
-
-      {/* Conteúdo Principal */}
-      <div className="relative py-16">
-        {/* Background sutil */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
-        <div className="absolute inset-0 bg-white/60"></div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-8">
-              <SectionCard
-                icon={<Info className="w-5 h-5 text-white" />}
-                title="Aceitação dos Termos"
-              >
-                <p>
-                  Pelo presente termo, ao utilizar o aplicativo AS BI MOBILE
-                  ("Aplicativo"), você ("Usuário") manifesta sua total
-                  concordância com as seguintes condições estabelecidas pela{" "}
-                  <strong className="text-gray-800">
-                    AGUIAR SISTEMAS LTDA ME
-                  </strong>
-                  , empresa jurídica de direito privado, devidamente inscrita no
-                  C.N.P.J sob o nº 05.295.417/0001-42, com sede na Rua Amazonas,
-                  605, Nova Imperatriz, Imperatriz - MA.
+      ),
+    },
+    {
+      id: "uso-plataforma",
+      title: "3. Uso da Plataforma",
+      icon: Smartphone,
+      content: (
+        <div className="space-y-4">
+          <p>
+            O AS BI é uma ferramenta profissional destinada à análise de dados
+            empresariais. O usuário compromete-se a:
+          </p>{" "}
+          <ul className="list-disc list-inside space-y-2 text-github-fg-muted">
+            <li>
+              Utilizar a plataforma apenas para fins legítimos e comerciais
+            </li>
+            <li>Não tentar violar a segurança do sistema</li>
+            <li>Manter a confidencialidade de suas credenciais de acesso</li>
+            <li>Respeitar os direitos de propriedade intelectual</li>
+            <li>Não sobrecarregar indevidamente o sistema</li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      id: "responsabilidades",
+      title: "4. Responsabilidades",
+      icon: CheckSquare,
+      content: (
+        <div className="space-y-4">
+          {" "}
+          <div>
+            <h4 className="font-semibold text-github-fg-default mb-2">
+              Do Usuário:
+            </h4>
+            <ul className="list-disc list-inside space-y-1 text-github-fg-muted">
+              <li>Fornecer informações precisas e atualizadas</li>
+              <li>Manter seus dados seguros e protegidos</li>
+              <li>Utilizar a plataforma conforme os termos estabelecidos</li>
+              <li>Reportar problemas ou vulnerabilidades identificadas</li>
+            </ul>
+          </div>
+          <div className="mt-6">
+            <h4 className="font-semibold text-github-fg-default mb-2">
+              Da Aguiar Sistemas:
+            </h4>
+            <ul className="list-disc list-inside space-y-1 text-github-fg-muted">
+              <li>Manter a plataforma funcionando adequadamente</li>
+              <li>Proteger os dados conforme nossa Política de Privacidade</li>
+              <li>Fornecer suporte técnico durante horário comercial</li>
+              <li>Notificar sobre atualizações importantes</li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "limitacoes",
+      title: "5. Limitações e Exclusões",
+      icon: Shield,
+      content: (
+        <div className="space-y-4">
+          <p>A Aguiar Sistemas não se responsabiliza por:</p>{" "}
+          <ul className="list-disc list-inside space-y-2 text-github-fg-muted">
+            <li>Perda de dados causada por uso inadequado da plataforma</li>
+            <li>Interrupções temporárias do serviço para manutenção</li>
+            <li>Decisões comerciais baseadas nas análises fornecidas</li>
+            <li>Problemas decorrentes de conexão de internet do usuário</li>
+            <li>Uso não autorizado por terceiros das credenciais do usuário</li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      id: "propriedade",
+      title: "6. Propriedade Intelectual",
+      icon: Users,
+      content: (
+        <div className="space-y-4">
+          <p>
+            Todos os direitos de propriedade intelectual relacionados ao AS BI,
+            incluindo mas não limitado a código-fonte, design, funcionalidades e
+            documentação, pertencem exclusivamente à Aguiar Sistemas LTDA.
+          </p>
+          <p>
+            Os dados inseridos pelo usuário permanecem de sua propriedade, sendo
+            utilizados pela plataforma apenas para fornecer os serviços
+            contratados.
+          </p>
+        </div>
+      ),
+    },
+  ];
+  return (
+    <div className="min-h-screen bg-github-canvas-default">
+      <div className="container-narrow py-8">
+        {/* Header */}
+        <div className="mb-8">
+          <Breadcrumb items={breadcrumbItems} className="mb-6" />
+          <div className="flex items-start justify-between mb-6">
+            <div className="flex items-center space-x-4">
+              <IconContainer size="lg" variant="primary">
+                <FileText className="w-6 h-6" />
+              </IconContainer>{" "}
+              <div>
+                <h1 className="text-4xl font-bold text-github-fg-default mb-2">
+                  Termos de Uso - AS BI
+                </h1>
+                <p className="text-lg text-github-fg-muted">
+                  Business Intelligence • Aguiar Sistemas
                 </p>
-              </SectionCard>
-
-              <SectionCard
-                icon={<Smartphone className="w-5 h-5 text-white" />}
-                title="Sobre o Aplicativo"
-              >
-                <p>
-                  O Aplicativo permite o acompanhamento, em tempo real, de
-                  informações gerenciais transmitidas diretamente do sistema de
-                  gestão do Usuário, como:{" "}
-                  <strong className="text-gray-800">
-                    CAIXA, BANCO, ESTOQUE e FATURAMENTO
-                  </strong>
-                  .
-                </p>
-                <p>
-                  Através de uma interface intuitiva e moderna, o usuário pode
-                  monitorar indicadores essenciais do seu negócio com facilidade
-                  e praticidade.
-                </p>
-              </SectionCard>
-
-              <SectionCard
-                icon={<CheckSquare className="w-5 h-5 text-white" />}
-                title="Condições de Uso"
-              >
-                <p>
-                  Ao aderir e utilizar o AS BI MOBILE, o Usuário está ciente e
-                  concorda que:
-                </p>
-                <ul className="list-disc list-outside space-y-3 pl-5 text-gray-600">
-                  <li>
-                    As informações disponibilizadas são provenientes do sistema
-                    de gestão contratado pelo Usuário, sendo a qualidade e a
-                    atualização dos dados de sua inteira responsabilidade.
-                  </li>
-                  <li>
-                    O acesso ao aplicativo será concedido mediante credenciais
-                    exclusivas e intransferíveis. O Usuário é responsável por
-                    manter a confidencialidade de suas credenciais.
-                  </li>
-                  <li>
-                    Eventuais ajustes, configurações ou integrações podem ser
-                    necessários para garantir a correta transmissão das
-                    informações entre o sistema de gestão e o Aplicativo.
-                  </li>
-                  <li>
-                    Não há qualquer custo adicional para o uso do AS BI MOBILE,
-                    sendo este um benefício disponibilizado gratuitamente aos
-                    clientes ativos dos sistemas de gestão da Aguiar Sistemas.
-                  </li>
-                  <li>
-                    O Usuário é o único responsável pela confidencialidade e uso
-                    adequado das informações acessadas por meio do Aplicativo.
-                  </li>
-                  <li>
-                    O Usuário conta com suporte técnico especializado para
-                    dúvidas, orientações ou eventuais problemas relacionados ao
-                    AS BI MOBILE, disponível através dos canais oficiais de
-                    atendimento da Aguiar Sistemas.
-                  </li>
-                </ul>
-                <p className="mt-4">
-                  A utilização contínua do Aplicativo confirma que o Usuário
-                  leu, entendeu e aceitou as condições descritas acima.
-                </p>
-              </SectionCard>
-
-              <SectionCard
-                icon={<Users className="w-5 h-5 text-white" />}
-                title="Contato e Suporte"
-              >
-                <p>
-                  Para dúvidas, sugestões ou suporte técnico, entre em contato
-                  conosco através dos seguintes canais:
-                </p>
-                <div className="glassmorphism-card p-4 border border-white/20 bg-white/60 mt-4">
-                  <ul className="space-y-2 text-gray-700">
-                    <li>
-                      <strong>Empresa:</strong> AGUIAR SISTEMAS LTDA ME
-                    </li>
-                    <li>
-                      <strong>Endereço:</strong> Rua Amazonas, 605, Nova
-                      Imperatriz, Imperatriz - MA, 65907-140
-                    </li>
-                    <li>
-                      <strong>Telefone:</strong> (99) 3529-9993
-                    </li>
-                    <li>
-                      <strong>E-mail:</strong>{" "}
-                      <a
-                        href="mailto:comercial@aguiarsistemas.com.br"
-                        className="text-primary-600 hover:text-primary-700 transition-colors"
-                      >
-                        comercial@aguiarsistemas.com.br
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </SectionCard>
-
-              {/* Navegação entre documentos com glassmorphism */}
-              <div className="mt-12 glassmorphism-card p-6 border border-white/20 bg-white/80">
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                  <Link
-                    to="/"
-                    className="group glassmorphism-card px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-600 text-white border border-white/30 hover:from-gray-600 hover:to-gray-700 transition-all duration-300 w-full sm:w-auto text-center"
-                  >
-                    <ArrowLeftCircle className="w-4 h-4 mr-2 inline group-hover:-translate-x-1 transition-transform duration-300" />
-                    Voltar ao Portal
-                  </Link>
-                  <Link
-                    to="/as-bi/politica-de-privacidade"
-                    className="group glassmorphism-card px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white border border-white/30 hover:from-primary-700 hover:to-primary-800 transition-all duration-300 w-full sm:w-auto text-center"
-                  >
-                    Política de Privacidade
-                    <ArrowRightCircle className="w-4 h-4 ml-2 inline group-hover:translate-x-1 transition-transform duration-300" />
-                  </Link>
-                </div>
+              </div>
+            </div>{" "}
+            <Link
+              to="/"
+              className="bg-github-canvas-subtle hover:bg-github-canvas-overlay text-github-fg-default border border-github-border-default rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
+              aria-label="Voltar ao início"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Voltar
+            </Link>
+          </div>{" "}
+          {/* Meta info */}
+          <GlassCard className="flex items-center justify-between text-sm text-github-fg-muted bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center">
+                <Calendar className="w-4 h-4 mr-2" />
+                <span>Última atualização: Janeiro 2025</span>
+              </div>
+              <div className="flex items-center">
+                <Shield className="w-4 h-4 mr-2" />
+                <span>Versão 2.1</span>
               </div>
             </div>
+
+            <Link
+              to="/as-bi/politica-de-privacidade"
+              className="text-github-accent-fg hover:text-github-accent-emphasis transition-colors duration-200 flex items-center"
+            >
+              <span>Política de Privacidade</span>
+              <ExternalLink className="w-3 h-3 ml-1" />
+            </Link>
+          </GlassCard>
+        </div>
+        {/* Content */}
+        <div className="space-y-8">
+          {sections.map((section) => (
+            <GlassCard key={section.id} id={section.id}>
+              <div className="flex items-center space-x-3 mb-6">
+                <IconContainer size="md" variant="primary">
+                  <section.icon className="w-5 h-5" />
+                </IconContainer>{" "}
+                <h2 className="text-2xl font-bold text-github-fg-default">
+                  {section.title}
+                </h2>
+              </div>
+
+              <div className="prose prose-gray max-w-none text-github-fg-default">
+                {section.content}
+              </div>
+            </GlassCard>
+          ))}
+        </div>{" "}
+        {/* Navigation Footer */}
+        <div className="mt-12 pt-8 border-t border-github-border-default">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+            <Link
+              to="/"
+              className="bg-github-canvas-subtle hover:bg-github-canvas-overlay text-github-fg-default border border-github-border-default rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Voltar ao Portal
+            </Link>
+
+            <Link
+              to="/as-bi/politica-de-privacidade"
+              className="bg-github-accent-emphasis hover:bg-blue-700 text-white rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
+            >
+              <span>Política de Privacidade</span>
+              <ExternalLink className="w-4 h-4 ml-2" />
+            </Link>
           </div>
         </div>
       </div>

@@ -1,11 +1,47 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class", // Habilita dark mode com classe
   theme: {
     extend: {
       colors: {
+        // GitHub Theme Colors - Automatically switches with dark mode
+        github: {
+          canvas: {
+            default: "rgb(255 255 255 / <alpha-value>)",
+            overlay: "rgb(255 255 255 / <alpha-value>)",
+            subtle: "rgb(246 248 250 / <alpha-value>)",
+          },
+          fg: {
+            default: "rgb(31 35 40 / <alpha-value>)",
+            muted: "rgb(101 109 118 / <alpha-value>)",
+          },
+          border: {
+            default: "rgb(209 217 224 / <alpha-value>)",
+            muted: "rgb(216 222 228 / <alpha-value>)",
+            emphasis: "rgb(31 111 235 / <alpha-value>)",
+          },
+          accent: {
+            emphasis: "rgb(31 111 235 / <alpha-value>)",
+            fg: "rgb(47 129 247 / <alpha-value>)",
+          },
+          success: {
+            emphasis: "rgb(35 134 54 / <alpha-value>)",
+            fg: "rgb(63 185 80 / <alpha-value>)",
+            subtle: "rgb(35 134 54 / 0.15)",
+          },
+          attention: {
+            emphasis: "rgb(154 103 0 / <alpha-value>)",
+            fg: "rgb(210 153 34 / <alpha-value>)",
+            subtle: "rgb(154 103 0 / 0.15)",
+          },
+          danger: {
+            emphasis: "rgb(207 34 46 / <alpha-value>)",
+            fg: "rgb(248 81 73 / <alpha-value>)",
+          },
+        },
         primary: {
-          DEFAULT: "#1976D2", // Azul Material Design (mantido)
+          DEFAULT: "#1976D2",
           light: "#42A5F5",
           dark: "#0D47A1",
           50: "#E3F2FD",

@@ -9,397 +9,477 @@ import {
   FileText,
   Mail,
   Globe,
-  Phone,
-  PersonStanding,
-  Briefcase,
   Database,
-  AlertTriangle,
   Settings,
   Shield,
   Share,
   Target,
-  Link2,
-  MessageSquare,
   Users,
-  RotateCcw,
-  ChevronLeft,
-  ChevronRight,
-  List,
+  ArrowLeft,
+  ExternalLink,
+  Calendar,
+  Eye,
+  UserCheck,
+  Trash2,
+  Download,
 } from "lucide-react";
 import Breadcrumb from "../../components/Breadcrumb";
+import GlassCard from "../../components/GlassCard";
+import IconContainer from "../../components/IconContainer";
 
 const PoliticaDePrivacidadePage = () => {
   const breadcrumbItems = [
     {
-      label: "Portal",
-      href: "/",
-      icon: <Home className="w-4 h-4" />,
-    },
-    {
       label: "AS BI",
       href: "/",
-      icon: <BarChart3 className="w-4 h-4" />,
     },
     {
       label: "Política de Privacidade",
-      icon: <Lock className="w-4 h-4" />,
     },
   ];
 
-  const SectionCard = ({ title, icon, children }) => (
-    <div className="glassmorphism-card p-6 border border-white/20 bg-white/80 hover:shadow-2xl transition-all duration-300">
-      <div className="flex items-center mb-4">
-        <div className="glassmorphism-card w-10 h-10 flex items-center justify-center mr-4 bg-gradient-to-br from-primary-500 to-primary-600 border border-white/30">
-          {icon}
+  const sections = [
+    {
+      id: "introducao",
+      title: "1. Introdução",
+      icon: Info,
+      content: (
+        <div className="space-y-4">
+          <p>
+            A Aguiar Sistemas LTDA está comprometida com a proteção da
+            privacidade e segurança dos dados pessoais dos usuários do AS BI.
+            Esta Política de Privacidade descreve como coletamos, usamos,
+            armazenamos e protegemos suas informações.
+          </p>
+          <p>
+            Esta política está em conformidade com a Lei Geral de Proteção de
+            Dados (LGPD) e outras regulamentações aplicáveis de proteção de
+            dados.
+          </p>
         </div>
-        <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
-      </div>
-      <div className="text-gray-600 leading-relaxed space-y-4">{children}</div>
-    </div>
-  );
+      ),
+    },
+    {
+      id: "coleta-dados",
+      title: "2. Coleta de Dados",
+      icon: Database,
+      content: (
+        <div className="space-y-4">
+          <p>Coletamos os seguintes tipos de dados:</p>
 
-  const InfoTag = ({ text }) => (
-    <span className="inline-flex items-center px-3 py-1 glassmorphism-card text-xs font-medium bg-gradient-to-r from-accent-400/20 to-accent-600/20 text-accent-700 border border-white/30">
-      {text}
-    </span>
-  );
-
-  const AlertBox = ({ children, icon, type = "warning" }) => {
-    const colors = {
-      warning:
-        "from-yellow-400/20 to-yellow-600/20 text-yellow-700 border-yellow-300/30",
-      info: "from-blue-400/20 to-blue-600/20 text-blue-700 border-blue-300/30",
-      success:
-        "from-green-400/20 to-green-600/20 text-green-700 border-green-300/30",
-    };
-    return (
-      <div
-        className={`glassmorphism-card border-l-4 p-4 bg-gradient-to-r ${colors[type]} flex items-start border border-white/20`}
-        role="alert"
-      >
-        <div className="mr-3 text-xl">{icon}</div>
-        <div className="text-sm">{children}</div>
-      </div>
-    );
-  };
-
-  return (
-    <div className="min-h-screen">
-      {/* Header Premium com Gradiente */}
-      <div className="relative overflow-hidden py-20">
-        {/* Background elegante */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-secondary-800 to-primary-900"></div>
-        <div className="absolute inset-0 bg-black/30"></div>
-
-        {/* Overlay com pattern sutil */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform skew-y-6"></div>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <div className="mb-8">
-              <Breadcrumb items={breadcrumbItems} />
+          <div className="space-y-4">
+            <div>
+              {" "}
+              <h4 className="font-semibold text-github-fg-default mb-2">
+                Dados de Identificação:
+              </h4>
+              <ul className="list-disc list-inside space-y-1 text-github-fg-muted">
+                <li>Nome completo</li>
+                <li>E-mail corporativo</li>
+                <li>Telefone de contato</li>
+                <li>Cargo e empresa</li>
+              </ul>
             </div>
 
-            {/* Header Card com glassmorphism */}
-            <div className="glassmorphism-card p-8 text-center border border-white/20 bg-white/10">
-              <div className="glassmorphism-card inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-accent-400 to-accent-600 mb-6 border border-white/30">
-                <Lock className="w-12 h-12 text-white" />
-              </div>
-              <h1 className="text-4xl font-bold text-white mb-3">
-                Política de Privacidade do AS BI
-              </h1>
-              <p className="text-lg text-white/80">
-                <strong>Última atualização:</strong> 9 de junho de 2025
-              </p>
+            <div>
+              <h4 className="font-semibold text-github-fg-default mb-2">
+                Dados de Uso:
+              </h4>
+              <ul className="list-disc list-inside space-y-1 text-github-fg-muted">
+                <li>Logs de acesso e navegação</li>
+                <li>Relatórios gerados e visualizados</li>
+                <li>Configurações personalizadas</li>
+                <li>Tempo de uso da plataforma</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-github-fg-default mb-2">
+                Dados Técnicos:
+              </h4>
+              <ul className="list-disc list-inside space-y-1 text-github-fg-muted">
+                <li>Endereço IP</li>
+                <li>Tipo de navegador e dispositivo</li>
+                <li>Sistema operacional</li>
+                <li>Informações de performance</li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
+      ),
+    },
+    {
+      id: "finalidade",
+      title: "3. Finalidade do Tratamento",
+      icon: Target,
+      content: (
+        <div className="space-y-4">
+          <p>Utilizamos seus dados pessoais para:</p>
 
-      {/* Conteúdo Principal */}
-      <div className="relative py-16">
-        {/* Background sutil */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
-        <div className="absolute inset-0 bg-white/60"></div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <div className="space-y-8">
-              {/* Seções de conteúdo principais com glassmorphism */}
-              <SectionCard
-                title="Introdução"
-                icon={<Info className="w-5 h-5 text-white" />}
-              >
-                <p>
-                  Esta Política de Privacidade descreve como seus dados pessoais
-                  são coletados, usados e compartilhados quando você utiliza o
-                  aplicativo AS BI (o "Aplicativo").
+          <div className="grid gap-4">
+            <div className="flex items-start space-x-3">
+              <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+              <div>
+                {" "}
+                <h5 className="font-medium text-github-fg-default">
+                  Prestação do Serviço
+                </h5>
+                <p className="text-github-fg-muted text-sm">
+                  Fornecer acesso e funcionalidades da plataforma AS BI
                 </p>
-                <AlertBox icon="ℹ️" type="info">
-                  Esta política aplica-se especificamente ao aplicativo AS BI e
-                  pode diferir de outras políticas da Aguiar Sistemas.
-                </AlertBox>
-              </SectionCard>
+              </div>
+            </div>
 
-              <SectionCard
-                title="Dados Pessoais Coletados"
-                icon={<Database className="w-5 h-5 text-white" />}
-              >
-                <p>
-                  Quando você utiliza o Aplicativo, coletamos as seguintes
-                  informações:
+            <div className="flex items-start space-x-3">
+              <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+              <div>
+                <h5 className="font-medium text-github-fg-default">
+                  Suporte Técnico
+                </h5>
+                <p className="text-github-fg-muted text-sm">
+                  Oferecer assistência e resolver problemas técnicos
                 </p>
-                <div className="glassmorphism-card p-4 border border-white/20 bg-white/60">
-                  <h4 className="font-semibold text-gray-800 mb-2">
-                    Informações que você nos fornece:
-                  </h4>
-                  <ul className="list-disc list-inside space-y-2 text-gray-600">
-                    <li>Dados de cadastro (nome, e-mail, telefone)</li>
-                    <li>Credenciais de acesso ao sistema</li>
-                    <li>Informações de configuração do aplicativo</li>
-                  </ul>
-                </div>
-                <div className="glassmorphism-card p-4 border border-white/20 bg-white/60">
-                  <h4 className="font-semibold text-gray-800 mb-2">
-                    Informações coletadas automaticamente:
-                  </h4>
-                  <ul className="list-disc list-inside space-y-2 text-gray-600">
-                    <li>Dados de uso do aplicativo</li>
-                    <li>
-                      Informações do dispositivo (modelo, sistema operacional)
-                    </li>
-                    <li>Logs de acesso e atividade</li>
-                  </ul>
-                </div>
-              </SectionCard>
+              </div>
+            </div>
 
-              <SectionCard
-                title="Como Usamos Seus Dados"
-                icon={<Target className="w-5 h-5 text-white" />}
-              >
-                <p>Utilizamos as informações coletadas para:</p>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="glassmorphism-card p-4 border border-white/20 bg-white/60">
-                    <h4 className="font-semibold text-gray-800 mb-2">
-                      Funcionalidades:
-                    </h4>
-                    <ul className="list-disc list-inside space-y-1 text-gray-600 text-sm">
-                      <li>Fornecer acesso aos dados do sistema</li>
-                      <li>Personalizar a experiência do usuário</li>
-                      <li>Sincronizar dados entre dispositivos</li>
-                    </ul>
-                  </div>
-                  <div className="glassmorphism-card p-4 border border-white/20 bg-white/60">
-                    <h4 className="font-semibold text-gray-800 mb-2">
-                      Melhorias:
-                    </h4>
-                    <ul className="list-disc list-inside space-y-1 text-gray-600 text-sm">
-                      <li>Analisar uso para melhorias</li>
-                      <li>Fornecer suporte técnico</li>
-                      <li>Detectar e prevenir problemas</li>
-                    </ul>
-                  </div>
-                </div>
-              </SectionCard>
-
-              <SectionCard
-                title="Compartilhamento de Dados"
-                icon={<Share className="w-5 h-5 text-white" />}
-              >
-                <AlertBox icon="🔒" type="success">
-                  Não compartilhamos seus dados pessoais com terceiros para fins
-                  comerciais ou publicitários.
-                </AlertBox>
-                <p>
-                  Podemos compartilhar informações apenas nos seguintes casos:
+            <div className="flex items-start space-x-3">
+              <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+              <div>
+                <h5 className="font-medium text-github-fg-default">
+                  Melhorias e Atualizações
+                </h5>
+                <p className="text-github-fg-muted text-sm">
+                  Aprimorar funcionalidades e desenvolver novos recursos
                 </p>
-                <ul className="list-disc list-inside space-y-2 text-gray-600">
-                  <li>Com seu consentimento explícito</li>
-                  <li>Para cumprir obrigações legais</li>
-                  <li>Para proteger nossos direitos e segurança</li>
-                  <li>
-                    Com prestadores de serviços que nos auxiliam (sob rigorosos
-                    termos de confidencialidade)
-                  </li>
-                </ul>
-              </SectionCard>
+              </div>
+            </div>
 
-              <SectionCard
-                title="Segurança dos Dados"
-                icon={<Shield className="w-5 h-5 text-white" />}
-              >
-                <p>
-                  Implementamos medidas de segurança técnicas e organizacionais
-                  para proteger seus dados pessoais:
+            <div className="flex items-start space-x-3">
+              <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+              <div>
+                <h5 className="font-medium text-github-fg-default">
+                  Segurança
+                </h5>
+                <p className="text-github-fg-muted text-sm">
+                  Detectar e prevenir atividades suspeitas ou fraudulentas
                 </p>
-                <div className="grid md:grid-cols-3 gap-4 mt-4">
-                  <div className="glassmorphism-card p-4 border border-white/20 bg-white/60 text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <span className="text-2xl">🔐</span>
-                    </div>
-                    <h4 className="font-semibold text-gray-800 text-sm">
-                      Criptografia
-                    </h4>
-                    <p className="text-xs text-gray-600">
-                      Dados protegidos em trânsito e armazenamento
-                    </p>
-                  </div>
-                  <div className="glassmorphism-card p-4 border border-white/20 bg-white/60 text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <span className="text-2xl">🛡️</span>
-                    </div>
-                    <h4 className="font-semibold text-gray-800 text-sm">
-                      Controle de Acesso
-                    </h4>
-                    <p className="text-xs text-gray-600">
-                      Acesso restrito e monitorado
-                    </p>
-                  </div>
-                  <div className="glassmorphism-card p-4 border border-white/20 bg-white/60 text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-400/20 to-purple-600/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <span className="text-2xl">🔄</span>
-                    </div>
-                    <h4 className="font-semibold text-gray-800 text-sm">
-                      Backups Seguros
-                    </h4>
-                    <p className="text-xs text-gray-600">
-                      Cópias protegidas e recuperáveis
-                    </p>
-                  </div>
-                </div>
-              </SectionCard>
+              </div>
+            </div>
 
-              <SectionCard
-                title="Seus Direitos"
-                icon={<CheckCircle className="w-5 h-5 text-white" />}
-              >
-                <p>De acordo com a LGPD, você tem os seguintes direitos:</p>
-                <div className="glassmorphism-card p-4 border border-white/20 bg-white/60">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">
-                        Direitos de Acesso:
-                      </h4>
-                      <ul className="list-disc list-inside space-y-1 text-gray-600 text-sm">
-                        <li>Confirmação de tratamento de dados</li>
-                        <li>Acesso aos dados pessoais</li>
-                        <li>Correção de dados incompletos</li>
-                        <li>Anonimização ou eliminação</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">
-                        Direitos de Controle:
-                      </h4>
-                      <ul className="list-disc list-inside space-y-1 text-gray-600 text-sm">
-                        <li>Portabilidade dos dados</li>
-                        <li>Informação sobre compartilhamento</li>
-                        <li>Revogação do consentimento</li>
-                        <li>Oposição ao tratamento</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <AlertBox icon="📧" type="info">
-                  Para exercer seus direitos, entre em contato conosco através
-                  do e-mail:{" "}
-                  <a
-                    href="mailto:lgpd@aguiarsistemas.com.br"
-                    className="font-semibold"
-                  >
-                    lgpd@aguiarsistemas.com.br
-                  </a>
-                </AlertBox>
-              </SectionCard>
-
-              <SectionCard
-                title="Contato"
-                icon={<Mail className="w-5 h-5 text-white" />}
-              >
-                <p>
-                  Para dúvidas sobre esta Política de Privacidade, entre em
-                  contato:
+            <div className="flex items-start space-x-3">
+              <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+              <div>
+                <h5 className="font-medium text-github-fg-default">
+                  Comunicação
+                </h5>
+                <p className="text-github-fg-muted text-sm">
+                  Enviar notificações importantes sobre o serviço
                 </p>
-                <div className="glassmorphism-card p-4 border border-white/20 bg-white/60">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">
-                        Dados da Empresa:
-                      </h4>
-                      <ul className="space-y-1 text-gray-600 text-sm">
-                        <li>
-                          <strong>Razão Social:</strong> AGUIAR SISTEMAS LTDA ME
-                        </li>
-                        <li>
-                          <strong>CNPJ:</strong> 05.295.417/0001-42
-                        </li>
-                        <li>
-                          <strong>Endereço:</strong> Rua Amazonas, 605, Nova
-                          Imperatriz, Imperatriz - MA
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">
-                        Contatos:
-                      </h4>
-                      <ul className="space-y-1 text-gray-600 text-sm">
-                        <li>
-                          <strong>E-mail Geral:</strong>{" "}
-                          comercial@aguiarsistemas.com.br
-                        </li>
-                        <li>
-                          <strong>E-mail LGPD:</strong>{" "}
-                          lgpd@aguiarsistemas.com.br
-                        </li>
-                        <li>
-                          <strong>Telefone:</strong> (99) 3529-9993
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </SectionCard>
-
-              <SectionCard
-                title="Alterações nesta Política"
-                icon={<RotateCcw className="w-5 h-5 text-white" />}
-              >
-                <p>
-                  Podemos atualizar esta Política de Privacidade periodicamente.
-                  Quando fizermos isso, revisaremos a data da "última
-                  atualização" no topo desta página e notificaremos você de
-                  alterações significativas.
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "compartilhamento",
+      title: "4. Compartilhamento de Dados",
+      icon: Share,
+      content: (
+        <div className="space-y-4">
+          <p>
+            A Aguiar Sistemas não vende, aluga ou compartilha dados pessoais com
+            terceiros, exceto nas seguintes situações:
+          </p>{" "}
+          <ul className="list-disc list-inside space-y-2 text-github-fg-muted">
+            <li>Quando exigido por lei ou ordem judicial</li>
+            <li>Para proteção dos direitos e segurança da empresa</li>
+            <li>
+              Com prestadores de serviços essenciais (sob rigorosos contratos de
+              confidencialidade)
+            </li>
+            <li>
+              Em caso de fusão, aquisição ou reestruturação empresarial (com
+              notificação prévia)
+            </li>
+          </ul>
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mt-4">
+            <div className="flex items-start space-x-3">
+              <Shield className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5" />
+              <div>
+                <h5 className="font-medium text-blue-900 dark:text-blue-200 mb-1">
+                  Garantia de Proteção
+                </h5>
+                <p className="text-blue-800 dark:text-blue-300 text-sm">
+                  Todos os terceiros que eventualmente acessem dados pessoais
+                  devem seguir padrões de segurança equivalentes aos nossos.
                 </p>
-                <AlertBox icon="🔔" type="warning">
-                  Recomendamos que você revise esta política periodicamente para
-                  se manter informado sobre como estamos protegendo suas
-                  informações.
-                </AlertBox>
-              </SectionCard>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "seguranca",
+      title: "5. Segurança dos Dados",
+      icon: Shield,
+      content: (
+        <div className="space-y-4">
+          <p>
+            Implementamos medidas técnicas e organizacionais robustas para
+            proteger seus dados:
+          </p>
 
-              {/* Navegação entre documentos com glassmorphism */}
-              <div className="mt-12 glassmorphism-card p-6 border border-white/20 bg-white/80">
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                  <Link
-                    to="/as-bi/termos-de-uso"
-                    className="group glassmorphism-card px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-600 text-white border border-white/30 hover:from-gray-600 hover:to-gray-700 transition-all duration-300 w-full sm:w-auto text-center"
-                  >
-                    <ChevronLeft className="w-4 h-4 mr-2 inline group-hover:-translate-x-1 transition-transform duration-300" />
-                    Termos de Uso
-                  </Link>
-                  <Link
-                    to="/"
-                    className="group glassmorphism-card px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white border border-white/30 hover:from-primary-700 hover:to-primary-800 transition-all duration-300 w-full sm:w-auto text-center"
-                  >
-                    Voltar ao Portal
-                    <ChevronRight className="w-4 h-4 ml-2 inline group-hover:translate-x-1 transition-transform duration-300" />
-                  </Link>
+          <div className="grid md:grid-cols-2 gap-4">
+            {" "}
+            <div className="space-y-3">
+              <h5 className="font-medium text-github-fg-default">
+                Medidas Técnicas:
+              </h5>
+              <ul className="list-disc list-inside space-y-1 text-github-fg-muted text-sm">
+                <li>Criptografia de dados em trânsito e em repouso</li>
+                <li>Autenticação de dois fatores</li>
+                <li>Monitoramento contínuo de segurança</li>
+                <li>Backups regulares e seguros</li>
+                <li>Firewall e sistemas de detecção de intrusão</li>
+              </ul>
+            </div>
+            <div className="space-y-3">
+              <h5 className="font-medium text-github-fg-default">
+                Medidas Organizacionais:
+              </h5>
+              <ul className="list-disc list-inside space-y-1 text-github-fg-muted text-sm">
+                <li>Treinamento regular da equipe</li>
+                <li>Controle de acesso baseado em funções</li>
+                <li>Políticas internas de segurança</li>
+                <li>Auditoria periódica dos sistemas</li>
+                <li>Plano de resposta a incidentes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "direitos-usuario",
+      title: "6. Direitos do Usuário",
+      icon: UserCheck,
+      content: (
+        <div className="space-y-4">
+          <p>
+            Conforme a LGPD, você possui os seguintes direitos sobre seus dados
+            pessoais:
+          </p>{" "}
+          <div className="grid gap-3">
+            {[
+              {
+                icon: Eye,
+                title: "Acesso",
+                desc: "Solicitar acesso aos seus dados pessoais",
+              },
+              {
+                icon: Settings,
+                title: "Correção",
+                desc: "Corrigir dados incompletos ou desatualizados",
+              },
+              {
+                icon: Trash2,
+                title: "Exclusão",
+                desc: "Solicitar a exclusão de dados desnecessários",
+              },
+              {
+                icon: Download,
+                title: "Portabilidade",
+                desc: "Receber seus dados em formato estruturado",
+              },
+              {
+                icon: Lock,
+                title: "Oposição",
+                desc: "Opor-se ao tratamento em certas situações",
+              },
+              {
+                icon: Info,
+                title: "Informação",
+                desc: "Obter informações sobre o tratamento",
+              },
+            ].map((right, index) => (
+              <div
+                key={index}
+                className="flex items-start space-x-3 p-3 border border-github-border-default rounded-lg"
+              >
+                <right.icon className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5" />
+                <div>
+                  <h5 className="font-medium text-github-fg-default">
+                    {right.title}
+                  </h5>
+                  <p className="text-github-fg-muted text-sm">{right.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="bg-github-canvas-subtle border border-github-border-default rounded-lg p-4 mt-6">
+            <h5 className="font-medium text-github-fg-default mb-2">
+              Como Exercer Seus Direitos:
+            </h5>
+            <p className="text-github-fg-muted text-sm mb-3">
+              Para exercer qualquer destes direitos, entre em contato conosco:
+            </p>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center space-x-2">
+                <Mail className="w-4 h-4 text-github-fg-muted" />
+                <span>privacidade@aguiarsistemas.com.br</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Globe className="w-4 h-4 text-github-fg-muted" />
+                <span>www.aguiarsistemas.com.br</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "contato",
+      title: "7. Contato e DPO",
+      icon: Mail,
+      content: (
+        <div className="space-y-4">
+          <p>
+            Para questões relacionadas à proteção de dados e privacidade, entre
+            em contato com nosso Encarregado de Proteção de Dados (DPO):
+          </p>{" "}
+          <div className="bg-github-canvas-overlay border border-github-border-default rounded-lg p-6">
+            <h5 className="font-medium text-github-fg-default mb-4">
+              Informações de Contato:
+            </h5>
+
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <Mail className="w-5 h-5 text-github-fg-muted" />
+                <div>
+                  <span className="font-medium">E-mail:</span>
+                  <span className="ml-2">dpo@aguiarsistemas.com.br</span>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <Globe className="w-5 h-5 text-github-fg-muted" />
+                <div>
+                  <span className="font-medium">Site:</span>
+                  <span className="ml-2">www.aguiarsistemas.com.br</span>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <Home className="w-5 h-5 text-github-fg-muted mt-0.5" />
+                <div>
+                  <span className="font-medium">Endereço:</span>
+                  <address className="ml-2 not-italic text-github-fg-muted">
+                    Aguiar Sistemas LTDA
+                    <br />
+                    João Pessoa, PB - Brasil
+                  </address>
                 </div>
               </div>
             </div>
+          </div>
+          <p className="text-sm text-github-fg-muted">
+            <strong>Tempo de Resposta:</strong> Responderemos às suas
+            solicitações em até 15 dias úteis, conforme estabelecido pela LGPD.
+          </p>
+        </div>
+      ),
+    },
+  ];
+  return (
+    <div className="min-h-screen bg-github-canvas-default">
+      <div className="container-narrow py-8">
+        {/* Header */}
+        <div className="mb-8">
+          <Breadcrumb items={breadcrumbItems} className="mb-6" />
+          <div className="flex items-start justify-between mb-6">
+            <div className="flex items-center space-x-4">
+              <IconContainer size="lg" variant="info">
+                <Lock className="w-6 h-6" />
+              </IconContainer>{" "}
+              <div>
+                <h1 className="text-4xl font-bold text-github-fg-default mb-2">
+                  Política de Privacidade - AS BI
+                </h1>
+                <p className="text-lg text-github-fg-muted">
+                  Business Intelligence • Aguiar Sistemas
+                </p>
+              </div>
+            </div>{" "}
+            <Link
+              to="/"
+              className="bg-github-canvas-subtle hover:bg-github-canvas-overlay text-github-fg-default border border-github-border-default rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
+              aria-label="Voltar ao início"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Voltar
+            </Link>
+          </div>{" "}
+          {/* Meta info */}
+          <GlassCard className="flex items-center justify-between text-sm text-github-fg-muted bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800">
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center">
+                <Calendar className="w-4 h-4 mr-2" />
+                <span>Última atualização: Janeiro 2025</span>
+              </div>
+              <div className="flex items-center">
+                <Shield className="w-4 h-4 mr-2" />
+                <span>Versão 2.1 • Conforme LGPD</span>
+              </div>
+            </div>
+
+            <Link
+              to="/as-bi/termos-de-uso"
+              className="text-github-accent-fg hover:text-github-accent-emphasis transition-colors duration-200 flex items-center"
+            >
+              <span>Termos de Uso</span>
+              <ExternalLink className="w-3 h-3 ml-1" />
+            </Link>
+          </GlassCard>
+        </div>
+        {/* Content */}
+        <div className="space-y-8">
+          {sections.map((section) => (
+            <GlassCard key={section.id} id={section.id}>
+              <div className="flex items-center space-x-3 mb-6">
+                <IconContainer size="md" variant="info">
+                  <section.icon className="w-5 h-5" />
+                </IconContainer>{" "}
+                <h2 className="text-2xl font-bold text-github-fg-default">
+                  {section.title}
+                </h2>
+              </div>
+
+              <div className="prose prose-gray max-w-none text-github-fg-default">
+                {section.content}
+              </div>
+            </GlassCard>
+          ))}
+        </div>{" "}
+        {/* Navigation Footer */}
+        <div className="mt-12 pt-8 border-t border-github-border-default">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+            <Link
+              to="/"
+              className="bg-github-canvas-subtle hover:bg-github-canvas-overlay text-github-fg-default border border-github-border-default rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Voltar ao Portal
+            </Link>
+
+            <Link
+              to="/as-bi/termos-de-uso"
+              className="bg-github-accent-emphasis hover:bg-blue-700 text-white rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
+            >
+              <span>Termos de Uso</span>
+              <ExternalLink className="w-4 h-4 ml-2" />
+            </Link>
           </div>
         </div>
       </div>

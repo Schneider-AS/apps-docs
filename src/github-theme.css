@@ -1,0 +1,236 @@
+/* ===== GITHUB THEME - AGUIAR SISTEMAS ===== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+      Helvetica, Arial, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Light mode (default) */
+  body {
+    @apply bg-white text-gray-900;
+  }
+
+  /* Dark mode */
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+}
+
+@layer utilities {
+  /* Definindo variáveis CSS customizadas que mudam automaticamente */
+  :root {
+    --github-canvas-default: 255 255 255;
+    --github-canvas-overlay: 255 255 255;
+    --github-canvas-subtle: 246 248 250;
+    --github-fg-default: 31 35 40;
+    --github-fg-muted: 101 109 118;
+    --github-border-default: 209 217 224;
+    --github-border-muted: 216 222 228;
+    --github-accent-emphasis: 31 111 235;
+    --github-accent-fg: 47 129 247;
+    --github-success-fg: 22 163 74;
+    --github-attention-fg: 217 119 6;
+    --github-danger-fg: 220 38 38;
+  }
+
+  .dark {
+    --github-canvas-default: 13 17 23;
+    --github-canvas-overlay: 22 27 34;
+    --github-canvas-subtle: 33 38 45;
+    --github-fg-default: 230 237 243;
+    --github-fg-muted: 125 133 144;
+    --github-border-default: 48 54 61;
+    --github-border-muted: 33 38 45;
+    --github-accent-emphasis: 31 111 235;
+    --github-accent-fg: 47 129 247;
+    --github-success-fg: 34 197 94;
+    --github-attention-fg: 245 158 11;
+    --github-danger-fg: 248 113 113;
+  }
+
+  /* GitHub Theme Utilities usando as variáveis CSS */
+  .bg-github-canvas-default {
+    background-color: rgb(var(--github-canvas-default));
+  }
+
+  .bg-github-canvas-overlay {
+    background-color: rgb(var(--github-canvas-overlay));
+  }
+
+  .bg-github-canvas-subtle {
+    background-color: rgb(var(--github-canvas-subtle));
+  }
+
+  .text-github-fg-default {
+    color: rgb(var(--github-fg-default));
+  }
+
+  .text-github-fg-muted {
+    color: rgb(var(--github-fg-muted));
+  }
+
+  .border-github-border-default {
+    border-color: rgb(var(--github-border-default));
+  }
+
+  .border-github-border-muted {
+    border-color: rgb(var(--github-border-muted));
+  }
+
+  .border-github-border-emphasis {
+    border-color: rgb(var(--github-accent-emphasis));
+  }
+
+  .bg-github-accent-emphasis {
+    background-color: rgb(var(--github-accent-emphasis));
+  }
+
+  .text-github-accent-fg {
+    color: rgb(var(--github-accent-fg));
+  }
+
+  .bg-github-success-subtle {
+    background-color: rgba(34, 197, 94, 0.1);
+  }
+
+  .text-github-success-fg {
+    color: rgb(var(--github-success-fg));
+  }
+
+  .bg-github-attention-subtle {
+    background-color: rgba(245, 158, 11, 0.1);
+  }
+
+  .text-github-attention-fg {
+    color: rgb(var(--github-attention-fg));
+  }
+
+  .text-github-danger-fg {
+    color: rgb(var(--github-danger-fg));
+  }
+
+  /* GitHub-style components */
+  .github-card {
+    background-color: rgb(var(--github-canvas-overlay));
+    border: 1px solid rgb(var(--github-border-default));
+    transition: all 0.2s ease;
+  }
+
+  .github-card:hover {
+    border-color: rgb(var(--github-border-muted));
+  }
+
+  .github-button {
+    background-color: rgb(var(--github-canvas-subtle));
+    color: rgb(var(--github-fg-default));
+    border: 1px solid rgb(var(--github-border-default));
+    transition: all 0.2s ease;
+  }
+
+  .github-button:hover {
+    background-color: rgb(var(--github-canvas-overlay));
+  }
+
+  .theme-toggle {
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    color: rgb(var(--github-fg-muted));
+    transition: all 0.2s ease;
+  }
+
+  .theme-toggle:hover {
+    color: rgb(var(--github-fg-default));
+    background-color: rgb(var(--github-canvas-subtle));
+  }
+}
+
+/* Transições suaves para todos os elementos com classes GitHub */
+.bg-github-canvas-default,
+.bg-github-canvas-overlay,
+.bg-github-canvas-subtle,
+.text-github-fg-default,
+.text-github-fg-muted,
+.border-github-border-default,
+.border-github-border-muted,
+.github-card,
+.github-button,
+.theme-toggle {
+  transition: all 0.3s ease;
+}
+
+/* Animações customizadas */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Container responsive utilitário */
+.container-narrow {
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-narrow {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-narrow {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Melhoramentos de acessibilidade */
+.focus\:outline-github:focus {
+  outline: 2px solid rgb(var(--github-accent-emphasis));
+  outline-offset: 2px;
+}
+
+/* Dark mode helpers */
+.dark-mode-transition {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}

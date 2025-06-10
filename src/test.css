@@ -1,0 +1,36 @@
+/* CSS TESTE BÁSICO */
+body {
+  background-color: #f0f0f0 !important;
+  font-family: Arial, sans-serif !important;
+  margin: 0 !important;
+  padding: 20px !important;
+}
+
+h1 {
+  color: #333 !important;
+  font-size: 2rem !important;
+}
+
+.card {
+  background: white !important;
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  margin: 16px 0 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn {
+  background: #007bff !important;
+  color: white !important;
+  padding: 8px 16px !important;
+  border: none !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+}
+
+.btn:hover {
+  background: #0056b3 !important;
+}
