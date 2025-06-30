@@ -111,6 +111,25 @@ const Header = () => {
                       Política de Privacidade
                     </Link>
                   </div>
+                  <div className="py-2 border-t border-github-border-muted">
+                    <div className="px-4 py-2 text-xs font-medium text-github-fg-muted uppercase tracking-wide border-b border-github-border-muted">
+                      AS Carrinho - Pré-Venda
+                    </div>
+                    <Link
+                      to="/as-carrinho/termos-de-uso"
+                      className="flex items-center px-4 py-3 text-sm text-github-fg-default hover:bg-github-canvas-subtle transition-colors duration-200"
+                    >
+                      <FileText className="w-4 h-4 mr-3 text-github-fg-muted" />
+                      Termos de Uso
+                    </Link>
+                    <Link
+                      to="/as-carrinho/politica-de-privacidade"
+                      className="flex items-center px-4 py-3 text-sm text-github-fg-default hover:bg-github-canvas-subtle transition-colors duration-200"
+                    >
+                      <FileText className="w-4 h-4 mr-3 text-github-fg-muted" />
+                      Política de Privacidade
+                    </Link>
+                  </div>
                 </div>
               </div>
 
@@ -185,6 +204,27 @@ const Header = () => {
                   </Link>
                   <Link
                     to="/as-bi/politica-de-privacidade"
+                    className="flex items-center px-3 py-3 text-github-fg-default hover:bg-github-canvas-subtle rounded-lg transition-colors duration-200 ml-4"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <FileText className="w-4 h-4 mr-3 text-github-fg-muted" />
+                    Política de Privacidade
+                  </Link>
+                </div>
+                <div className="mt-4">
+                  <div className="px-3 py-2 text-xs font-medium text-github-fg-muted uppercase tracking-wide">
+                    AS Carrinho - Pré-Venda
+                  </div>
+                  <Link
+                    to="/as-carrinho/termos-de-uso"
+                    className="flex items-center px-3 py-3 text-github-fg-default hover:bg-github-canvas-subtle rounded-lg transition-colors duration-200 ml-4"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <FileText className="w-4 h-4 mr-3 text-github-fg-muted" />
+                    Termos de Uso
+                  </Link>
+                  <Link
+                    to="/as-carrinho/politica-de-privacidade"
                     className="flex items-center px-3 py-3 text-github-fg-default hover:bg-github-canvas-subtle rounded-lg transition-colors duration-200 ml-4"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
