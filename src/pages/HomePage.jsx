@@ -16,6 +16,7 @@ import {
   Users,
   Rocket,
   Star,
+  ShoppingCart,
 } from "lucide-react";
 
 const HomePage = () => {
@@ -156,6 +157,21 @@ const HomePage = () => {
       ],
     },
     {
+      name: "As Carrinho",
+      description: "Plataforma de e-commerce e gestão de vendas online",
+      icon: ShoppingCart,
+      status: "Ativo",
+      color: "bg-github-success-subtle",
+      textColor: "text-github-success-fg",
+      links: [
+        { name: "Termos de Uso", href: "/as-carrinho/termos-de-uso" },
+        {
+          name: "Política de Privacidade",
+          href: "/as-carrinho/politica-de-privacidade",
+        },
+      ],
+    },
+    {
       name: "Novos Apps",
       description: "Aplicações inovadoras em desenvolvimento",
       icon: Rocket,
@@ -170,13 +186,13 @@ const HomePage = () => {
   const stats = [
     {
       label: "Aplicativos",
-      value: "1",
+      value: "2",
       icon: Code,
-      description: "AS BI ativo",
+      description: "AS BI e As Carrinho ativos",
     },
     {
       label: "Documentos",
-      value: "2",
+      value: "4",
       icon: BookOpen,
       description: "Termos e Políticas",
     },
