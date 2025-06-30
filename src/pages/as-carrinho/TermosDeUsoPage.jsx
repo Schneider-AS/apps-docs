@@ -1,19 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  Home,
-  ShoppingCart,
-  FileText,
-  Info,
-  Smartphone,
-  CheckSquare,
-  Users,
   ArrowLeft,
-  ExternalLink,
   Calendar,
-  Shield,
-  CreditCard,
+  CheckSquare,
+  ExternalLink,
+  FileText,
+  Home,
+  Info,
   Package,
+  Shield,
+  Smartphone,
+  Users,
+  BarChart3,
+  FileSignature,
+  Send,
 } from "lucide-react";
 import Breadcrumb from "../../components/Breadcrumb";
 import GlassCard from "../../components/GlassCard";
@@ -38,14 +39,16 @@ const TermosDeUsoPage = () => {
       content: (
         <div className="space-y-4">
           <p>
-            Bem-vindo ao As Carrinho (Aguiar Sistemas Carrinho de Compras). Estes
-            Termos de Uso estabelecem as condições gerais de utilização da nossa
-            plataforma de e-commerce e gestão de vendas online.
+            Bem-vindo ao As Carrinho. Estes Termos de Uso estabelecem as
+            condições para a utilização da nossa ferramenta de pré-venda e
+            criação de orçamentos, destinada ao uso exclusivo dos vendedores da
+            empresa.
           </p>
           <p>
-            Ao acessar ou utilizar o As Carrinho, você concorda em cumprir estes
-            termos. Se não concordar com qualquer parte destes termos, não
-            utilize nossa plataforma.
+            Ao acessar ou utilizar o As Carrinho, você, como vendedor, concorda
+            em cumprir estes termos. A plataforma foi desenvolvida para
+            otimizar o processo de vendas presenciais e integrar orçamentos ao
+            nosso sistema Gestore.
           </p>
         </div>
       ),
@@ -61,34 +64,35 @@ const TermosDeUsoPage = () => {
               As Carrinho:
             </h4>
             <p>
-              Plataforma de e-commerce e carrinho de compras desenvolvida pela Aguiar
-              Sistemas LTDA.
+              Ferramenta de pré-venda para criação de orçamentos, desenvolvida
+              pela Aguiar Sistemas LTDA.
             </p>
           </div>
           <div>
             <h4 className="font-semibold text-github-fg-default mb-2">
-              Usuário/Cliente:
+              Usuário (Vendedor):
             </h4>
             <p>
-              Qualquer pessoa física ou jurídica que acesse, utilize a plataforma
-              ou realize compras através do As Carrinho.
+              Colaborador autorizado pela empresa para utilizar a plataforma
+              para fins de pré-venda.
             </p>
           </div>
           <div>
             <h4 className="font-semibold text-github-fg-default mb-2">
-              Produtos:
+              Orçamento:
             </h4>
             <p>
-              Itens, serviços ou mercadorias oferecidos para venda através da
-              plataforma.
+              Documento de pré-venda criado na plataforma, contendo produtos e
+              condições comerciais para um cliente.
             </p>
           </div>
           <div>
             <h4 className="font-semibold text-github-fg-default mb-2">
-              Pedido:
+              Gestore:
             </h4>
             <p>
-              Solicitação de compra realizada pelo cliente através da plataforma.
+              Nosso sistema de Gestão Empresarial (ERP), integrado ao As
+              Carrinho para onde os orçamentos são enviados.
             </p>
           </div>
         </div>
@@ -101,112 +105,70 @@ const TermosDeUsoPage = () => {
       content: (
         <div className="space-y-4">
           <p>
-            O As Carrinho é uma plataforma de e-commerce destinada à venda de
-            produtos e serviços. O usuário compromete-se a:
+            O As Carrinho é uma ferramenta profissional destinada a agilizar o
+            trabalho dos vendedores. O usuário compromete-se a:
           </p>
           <ul className="list-disc list-inside space-y-2 text-github-fg-muted">
+            <li>Utilizar a plataforma apenas para fins profissionais legítimos.</li>
+            <li>Não tentar violar a segurança do sistema ou do Gestore.</li>
             <li>
-              Utilizar a plataforma apenas para fins legítimos de compra
+              Manter a confidencialidade de suas credenciais de acesso (login e
+              senha).
             </li>
-            <li>Fornecer informações verdadeiras e atualizadas</li>
-            <li>Não tentar violar a segurança do sistema de pagamento</li>
-            <li>Manter a confidencialidade de suas credenciais de acesso</li>
-            <li>Respeitar os direitos de propriedade intelectual</li>
-            <li>Não usar a plataforma para atividades fraudulentas</li>
-            <li>Respeitar as políticas de devolução e troca</li>
+            <li>Respeitar os direitos de propriedade intelectual.</li>
+            <li>Não sobrecarregar indevidamente o sistema.</li>
+            <li>Inserir informações precisas e corretas nos orçamentos.</li>
           </ul>
         </div>
       ),
     },
     {
-      id: "compras-pagamentos",
-      title: "4. Compras e Pagamentos",
-      icon: CreditCard,
+      id: "criacao-orcamentos",
+      title: "4. Criação e Envio de Orçamentos",
+      icon: FileSignature,
       content: (
         <div className="space-y-4">
           <div>
             <h4 className="font-semibold text-github-fg-default mb-2">
-              Processo de Compra:
+              Processo de Pré-Venda:
             </h4>
             <ul className="list-disc list-inside space-y-1 text-github-fg-muted">
-              <li>Seleção de produtos e adição ao carrinho</li>
-              <li>Preenchimento dos dados de entrega e pagamento</li>
-              <li>Confirmação do pedido pelo cliente</li>
-              <li>Processamento do pagamento</li>
-              <li>Confirmação e envio do produto</li>
+              <li>Identificação do cliente e seleção de produtos.</li>
+              <li>Definição de quantidades, preços e condições.</li>
+              <li>Geração do orçamento na plataforma.</li>
+              <li>Revisão e confirmação dos dados pelo vendedor.</li>
+              <li>Envio do orçamento para o sistema Gestore da empresa.</li>
             </ul>
           </div>
           <div className="mt-6">
             <h4 className="font-semibold text-github-fg-default mb-2">
-              Formas de Pagamento:
-            </h4>
-            <ul className="list-disc list-inside space-y-1 text-github-fg-muted">
-              <li>Cartões de crédito e débito</li>
-              <li>PIX (pagamento instantâneo)</li>
-              <li>Boleto bancário</li>
-              <li>Outras formas conforme disponibilidade</li>
-            </ul>
-          </div>
-          <div className="mt-6">
-            <h4 className="font-semibold text-github-fg-default mb-2">
-              Preços e Disponibilidade:
+              Validade dos Orçamentos:
             </h4>
             <p className="text-github-fg-muted">
-              Os preços estão sujeitos a alterações sem aviso prévio. A disponibilidade
-              dos produtos é atualizada em tempo real, mas pode haver divergências
-              em situações de alta demanda.
+              As condições comerciais, preços e disponibilidade de estoque
+              refletidos no orçamento são validados e gerenciados pelo Gestore
+              após o envio. A plataforma As Carrinho funciona como um ponto de
+              entrada de dados.
             </p>
           </div>
         </div>
       ),
     },
     {
-      id: "entrega-devolucao",
-      title: "5. Entrega e Devolução",
-      icon: Package,
-      content: (
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-semibold text-github-fg-default mb-2">
-              Entrega:
-            </h4>
-            <ul className="list-disc list-inside space-y-1 text-github-fg-muted">
-              <li>Prazos de entrega conforme região selecionada</li>
-              <li>Rastreamento disponível para todos os pedidos</li>
-              <li>Entrega realizada no endereço informado pelo cliente</li>
-              <li>Necessária presença do destinatário ou responsável</li>
-            </ul>
-          </div>
-          <div className="mt-6">
-            <h4 className="font-semibold text-github-fg-default mb-2">
-              Política de Devolução:
-            </h4>
-            <ul className="list-disc list-inside space-y-1 text-github-fg-muted">
-              <li>Prazo de 7 dias para arrependimento (conforme CDC)</li>
-              <li>Produtos devem estar em perfeito estado</li>
-              <li>Embalagem original preservada</li>
-              <li>Custos de devolução conforme política específica</li>
-            </ul>
-          </div>
-        </div>
-      ),
-    },
-    {
       id: "responsabilidades",
-      title: "6. Responsabilidades",
+      title: "5. Responsabilidades",
       icon: CheckSquare,
       content: (
         <div className="space-y-4">
           <div>
             <h4 className="font-semibold text-github-fg-default mb-2">
-              Do Cliente:
+              Do Vendedor:
             </h4>
             <ul className="list-disc list-inside space-y-1 text-github-fg-muted">
-              <li>Fornecer informações precisas e atualizadas</li>
-              <li>Verificar dados do pedido antes da confirmação</li>
-              <li>Utilizar a plataforma conforme os termos estabelecidos</li>
-              <li>Reportar problemas ou inconsistências identificadas</li>
-              <li>Estar presente no endereço informado para recebimento</li>
+              <li>Garantir a precisão das informações inseridas.</li>
+              <li>Proteger suas credenciais de acesso contra uso não autorizado.</li>
+              <li>Utilizar a ferramenta de acordo com as políticas da empresa.</li>
+              <li>Reportar problemas ou vulnerabilidades identificadas.</li>
             </ul>
           </div>
           <div className="mt-6">
@@ -214,12 +176,11 @@ const TermosDeUsoPage = () => {
               Da Aguiar Sistemas:
             </h4>
             <ul className="list-disc list-inside space-y-1 text-github-fg-muted">
-              <li>Manter a plataforma funcionando adequadamente</li>
-              <li>Proteger os dados conforme nossa Política de Privacidade</li>
-              <li>Processar pedidos e pagamentos com segurança</li>
-              <li>Fornecer suporte ao cliente durante horário comercial</li>
-              <li>Cumprir prazos de entrega informados</li>
-              <li>Garantir a qualidade dos produtos vendidos</li>
+              <li>Manter a plataforma funcionando adequadamente.</li>
+              <li>Proteger os dados conforme nossa Política de Privacidade.</li>
+              <li>Garantir a integração segura com o sistema Gestore.</li>
+              <li>Fornecer suporte técnico durante o horário comercial.</li>
+              <li>Notificar sobre atualizações importantes na ferramenta.</li>
             </ul>
           </div>
         </div>
@@ -227,38 +188,42 @@ const TermosDeUsoPage = () => {
     },
     {
       id: "limitacoes",
-      title: "7. Limitações e Exclusões",
+      title: "6. Limitações e Exclusões",
       icon: Shield,
       content: (
         <div className="space-y-4">
           <p>A Aguiar Sistemas não se responsabiliza por:</p>
           <ul className="list-disc list-inside space-y-2 text-github-fg-muted">
-            <li>Produtos danificados por uso inadequado pelo cliente</li>
-            <li>Atrasos na entrega causados pelos Correios ou transportadoras</li>
-            <li>Indisponibilidade temporária da plataforma para manutenção</li>
-            <li>Problemas decorrentes de conexão de internet do cliente</li>
-            <li>Uso não autorizado por terceiros das credenciais do cliente</li>
-            <li>Variações naturais em produtos artesanais ou naturais</li>
+            <li>
+              Erros de digitação ou de inserção de dados cometidos pelo
+              vendedor.
+            </li>
+            <li>
+              Decisões comerciais baseadas em orçamentos ainda não confirmados
+              pelo Gestore.
+            </li>
+            <li>Interrupções temporárias do serviço para manutenção.</li>
+            <li>Problemas decorrentes de conexão de internet do usuário.</li>
+            <li>Uso não autorizado das credenciais do vendedor por terceiros.</li>
           </ul>
         </div>
       ),
     },
     {
       id: "propriedade",
-      title: "8. Propriedade Intelectual",
+      title: "7. Propriedade Intelectual",
       icon: Users,
       content: (
         <div className="space-y-4">
           <p>
-            Todos os direitos de propriedade intelectual relacionados ao As Carrinho,
-            incluindo mas não limitado a código-fonte, design, funcionalidades,
-            imagens e descrições de produtos, pertencem exclusivamente à Aguiar
-            Sistemas LTDA ou seus parceiros licenciados.
+            Todos os direitos de propriedade intelectual relacionados ao As
+            Carrinho, incluindo código-fonte, design e funcionalidades,
+            pertencem exclusivamente à Aguiar Sistemas LTDA.
           </p>
           <p>
-            Os dados pessoais e de compra do cliente permanecem de sua propriedade,
-            sendo utilizados pela plataforma apenas para processar pedidos e
-            melhorar a experiência de compra.
+            Os dados dos orçamentos e dos clientes inseridos na plataforma são de
+            propriedade da empresa contratante, sendo utilizados pela
+            plataforma apenas para os fins de pré-venda descritos.
           </p>
         </div>
       ),
@@ -273,7 +238,7 @@ const TermosDeUsoPage = () => {
           <Breadcrumb items={breadcrumbItems} className="mb-6" />
           <div className="flex items-start justify-between mb-6">
             <div className="flex items-center space-x-4">
-              <IconContainer size="lg" variant="primary">
+              <IconContainer size="lg" variant="info">
                 <FileText className="w-6 h-6" />
               </IconContainer>
               <div>
@@ -281,124 +246,78 @@ const TermosDeUsoPage = () => {
                   Termos de Uso - As Carrinho
                 </h1>
                 <p className="text-lg text-github-fg-muted">
-                  E-commerce • Aguiar Sistemas
+                  Ferramenta de Pré-venda • Aguiar Sistemas
                 </p>
               </div>
             </div>
             <Link
               to="/"
-              className="inline-flex items-center px-4 py-2 text-github-fg-muted hover:text-github-fg-default border border-github-border-default rounded-lg hover:border-github-border-emphasis transition-all duration-200"
+              className="bg-github-canvas-subtle hover:bg-github-canvas-overlay text-github-fg-default border border-github-border-default rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
+              aria-label="Voltar ao início"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Voltar ao Início
+              Voltar
             </Link>
           </div>
-
-          {/* Info Card */}
-          <GlassCard className="mb-8 border-l-4 border-l-github-accent-emphasis">
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0">
-                <IconContainer variant="accent">
-                  <Calendar className="w-5 h-5" />
-                </IconContainer>
+          {/* Meta info */}
+          <GlassCard className="flex items-center justify-between text-sm text-github-fg-muted bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800">
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center">
+                <Calendar className="w-4 h-4 mr-2" />
+                <span>Última atualização: Janeiro 2025</span>
               </div>
-              <div>
-                <h3 className="font-semibold text-github-fg-default mb-1">
-                  Última Atualização
-                </h3>
-                <p className="text-github-fg-muted text-sm">
-                  Este documento foi atualizado em Janeiro de 2025. Recomendamos
-                  a leitura periódica para se manter informado sobre eventuais
-                  mudanças.
-                </p>
+              <div className="flex items-center">
+                <Shield className="w-4 h-4 mr-2" />
+                <span>Uso Interno • Versão 2.1</span>
               </div>
             </div>
+
+            <Link
+              to="/as-carrinho/politica-de-privacidade"
+              className="text-github-accent-fg hover:text-github-accent-emphasis transition-colors duration-200 flex items-center"
+            >
+              <span>Política de Privacidade</span>
+              <ExternalLink className="w-3 h-3 ml-1" />
+            </Link>
           </GlassCard>
         </div>
-
         {/* Content */}
-        <div className="grid lg:grid-cols-4 gap-8">
-          {/* Table of Contents */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8">
-              <GlassCard>
-                <h3 className="font-semibold text-github-fg-default mb-4 flex items-center">
-                  <FileText className="w-4 h-4 mr-2" />
-                  Índice
-                </h3>
-                <nav className="space-y-2">
-                  {sections.map((section) => (
-                    <a
-                      key={section.id}
-                      href={`#${section.id}`}
-                      className="flex items-center text-sm text-github-fg-muted hover:text-github-accent-fg transition-colors duration-200 py-1"
-                    >
-                      <section.icon className="w-3 h-3 mr-2 flex-shrink-0" />
-                      {section.title}
-                    </a>
-                  ))}
-                </nav>
-              </GlassCard>
-            </div>
-          </div>
+        <div className="space-y-8">
+          {sections.map((section) => (
+            <GlassCard key={section.id} id={section.id}>
+              <div className="flex items-center space-x-3 mb-6">
+                <IconContainer size="md" variant="info">
+                  <section.icon className="w-5 h-5" />
+                </IconContainer>
+                <h2 className="text-2xl font-bold text-github-fg-default">
+                  {section.title}
+                </h2>
+              </div>
 
-          {/* Main Content */}
-          <div className="lg:col-span-3 space-y-8">
-            {sections.map((section) => (
-              <section key={section.id} id={section.id}>
-                <GlassCard>
-                  <div className="flex items-center space-x-3 mb-6">
-                    <IconContainer variant="primary">
-                      <section.icon className="w-5 h-5" />
-                    </IconContainer>
-                    <h2 className="text-2xl font-bold text-github-fg-default">
-                      {section.title}
-                    </h2>
-                  </div>
-                  <div className="prose prose-github max-w-none">
-                    {section.content}
-                  </div>
-                </GlassCard>
-              </section>
-            ))}
-
-            {/* Contact Section */}
-            <GlassCard className="border-l-4 border-l-github-success-emphasis">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <IconContainer variant="success">
-                    <Info className="w-5 h-5" />
-                  </IconContainer>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-github-fg-default mb-2">
-                    Dúvidas ou Suporte?
-                  </h3>
-                  <p className="text-github-fg-muted text-sm mb-4">
-                    Se você tiver dúvidas sobre estes termos ou precisar de
-                    suporte, entre em contato conosco.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <a
-                      href="mailto:suporte@aguiarsistemas.com.br"
-                      className="inline-flex items-center px-4 py-2 bg-github-accent-emphasis text-white rounded-lg hover:bg-github-accent-emphasis/90 transition-colors duration-200 text-sm"
-                    >
-                      <ShoppingCart className="w-4 h-4 mr-2" />
-                      Suporte As Carrinho
-                    </a>
-                    <a
-                      href="https://aguiarsistemas.com.br"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 border border-github-border-default text-github-fg-default rounded-lg hover:border-github-border-emphasis transition-colors duration-200 text-sm"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Aguiar Sistemas
-                    </a>
-                  </div>
-                </div>
+              <div className="prose prose-gray text-github-fg-default">
+                {section.content}
               </div>
             </GlassCard>
+          ))}
+        </div>
+        {/* Navigation Footer */}
+        <div className="mt-12 pt-8 border-t border-github-border-default">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+            <Link
+              to="/"
+              className="bg-github-canvas-subtle hover:bg-github-canvas-overlay text-github-fg-default border border-github-border-default rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Voltar ao Portal
+            </Link>
+
+            <Link
+              to="/as-carrinho/politica-de-privacidade"
+              className="bg-github-accent-emphasis hover:bg-blue-700 text-white rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
+            >
+              <span>Política de Privacidade</span>
+              <ExternalLink className="w-4 h-4 ml-2" />
+            </Link>
           </div>
         </div>
       </div>
