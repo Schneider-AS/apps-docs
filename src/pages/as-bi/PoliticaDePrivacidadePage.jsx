@@ -74,10 +74,11 @@ const PoliticaDePrivacidadePage = () => {
                 Dados de Identificação:
               </h4>
               <ul className="list-disc list-inside space-y-1 text-github-fg-muted">
-                <li>Nome completo</li>
-                <li>E-mail corporativo</li>
-                <li>Telefone de contato</li>
-                <li>Cargo e empresa</li>
+                <li>Nome</li>
+                <li>Código de usuário</li>
+                <li>Nome da empresa</li>
+                <li>CNPJ</li>
+                <li>Serial (código de identifiação interno)</li>
               </ul>
             </div>
 
