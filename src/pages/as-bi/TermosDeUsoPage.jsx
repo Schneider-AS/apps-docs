@@ -16,6 +16,7 @@ import {
 import Breadcrumb from "../../components/Breadcrumb";
 import GlassCard from "../../components/GlassCard";
 import IconContainer from "../../components/IconContainer";
+import SEO from "../../components/SEO";
 
 const TermosDeUsoPage = () => {
   const breadcrumbItems = [
@@ -177,97 +178,104 @@ const TermosDeUsoPage = () => {
     },
   ];
   return (
-    <div className="min-h-screen bg-github-canvas-default">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <Breadcrumb items={breadcrumbItems} className="mb-6" />
-          <div className="flex items-start justify-between mb-6">
-            <div className="flex items-center space-x-4">
-              <IconContainer size="lg" variant="primary">
-                <FileText className="w-6 h-6" />
-              </IconContainer>{" "}
-              <div>
-                <h1 className="text-4xl font-bold text-github-fg-default mb-2">
-                  Termos de Uso - AS BI
-                </h1>
-                <p className="text-lg text-github-fg-muted">
-                  Business Intelligence • Aguiar Sistemas
-                </p>
-              </div>
-            </div>{" "}
-            <Link
-              to="/"
-              className="bg-github-canvas-subtle hover:bg-github-canvas-overlay text-github-fg-default border border-github-border-default rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
-              aria-label="Voltar ao início"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Voltar
-            </Link>
-          </div>{" "}
-          {/* Meta info */}
-          <GlassCard className="flex items-center justify-between text-sm text-github-fg-muted bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center">
-                <Calendar className="w-4 h-4 mr-2" />
-                <span>Última atualização: Janeiro 2025</span>
-              </div>
-              <div className="flex items-center">
-                <Shield className="w-4 h-4 mr-2" />
-                <span>Versão 2.1</span>
-              </div>
-            </div>
-
-            <Link
-              to="/as-bi/politica-de-privacidade"
-              className="text-github-accent-fg hover:text-github-accent-emphasis transition-colors duration-200 flex items-center"
-            >
-              <span>Política de Privacidade</span>
-              <ExternalLink className="w-3 h-3 ml-1" />
-            </Link>
-          </GlassCard>
-        </div>
-        {/* Content */}
-        <div className="space-y-8">
-          {sections.map((section) => (
-            <GlassCard key={section.id} id={section.id}>
-              <div className="flex items-center space-x-3 mb-6">
-                <IconContainer size="md" variant="primary">
-                  <section.icon className="w-5 h-5" />
+    <>
+      <SEO
+        title="Termos de Uso - AS BI | Aguiar Sistemas"
+        description="Termos de Uso do aplicativo AS BI da Aguiar Sistemas. Condições de uso, direitos e responsabilidades dos usuários."
+        url="https://asdocs.vercel.app/as-bi/termos-de-uso"
+      />
+      <div className="min-h-screen bg-github-canvas-default">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* Header */}
+          <div className="mb-8">
+            <Breadcrumb items={breadcrumbItems} className="mb-6" />
+            <div className="flex items-start justify-between mb-6">
+              <div className="flex items-center space-x-4">
+                <IconContainer size="lg" variant="primary">
+                  <FileText className="w-6 h-6" />
                 </IconContainer>{" "}
-                <h2 className="text-2xl font-bold text-github-fg-default">
-                  {section.title}
-                </h2>
+                <div>
+                  <h1 className="text-4xl font-bold text-github-fg-default mb-2">
+                    Termos de Uso - AS BI
+                  </h1>
+                  <p className="text-lg text-github-fg-muted">
+                    Business Intelligence • Aguiar Sistemas
+                  </p>
+                </div>
+              </div>{" "}
+              <Link
+                to="/"
+                className="bg-github-canvas-subtle hover:bg-github-canvas-overlay text-github-fg-default border border-github-border-default rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
+                aria-label="Voltar ao início"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Voltar
+              </Link>
+            </div>{" "}
+            {/* Meta info */}
+            <GlassCard className="flex items-center justify-between text-sm text-github-fg-muted bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  <span>Última atualização: Janeiro 2025</span>
+                </div>
+                <div className="flex items-center">
+                  <Shield className="w-4 h-4 mr-2" />
+                  <span>Versão 2.1</span>
+                </div>
               </div>
 
-              <div className="prose prose-gray text-github-fg-default">
-                {section.content}
-              </div>
+              <Link
+                to="/as-bi/politica-de-privacidade"
+                className="text-github-accent-fg hover:text-github-accent-emphasis transition-colors duration-200 flex items-center"
+              >
+                <span>Política de Privacidade</span>
+                <ExternalLink className="w-3 h-3 ml-1" />
+              </Link>
             </GlassCard>
-          ))}
-        </div>{" "}
-        {/* Navigation Footer */}
-        <div className="mt-12 pt-8 border-t border-github-border-default">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
-            <Link
-              to="/"
-              className="bg-github-canvas-subtle hover:bg-github-canvas-overlay text-github-fg-default border border-github-border-default rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Voltar ao Portal
-            </Link>
+          </div>
+          {/* Content */}
+          <div className="space-y-8">
+            {sections.map((section) => (
+              <GlassCard key={section.id} id={section.id}>
+                <div className="flex items-center space-x-3 mb-6">
+                  <IconContainer size="md" variant="primary">
+                    <section.icon className="w-5 h-5" />
+                  </IconContainer>{" "}
+                  <h2 className="text-2xl font-bold text-github-fg-default">
+                    {section.title}
+                  </h2>
+                </div>
 
-            <Link
-              to="/as-bi/politica-de-privacidade"
-              className="bg-github-accent-emphasis hover:bg-blue-700 text-white rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
-            >
-              <span>Política de Privacidade</span>
-              <ExternalLink className="w-4 h-4 ml-2" />
-            </Link>
+                <div className="prose prose-gray text-github-fg-default">
+                  {section.content}
+                </div>
+              </GlassCard>
+            ))}
+          </div>{" "}
+          {/* Navigation Footer */}
+          <div className="mt-12 pt-8 border-t border-github-border-default">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+              <Link
+                to="/"
+                className="bg-github-canvas-subtle hover:bg-github-canvas-overlay text-github-fg-default border border-github-border-default rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Voltar ao Portal
+              </Link>
+
+              <Link
+                to="/as-bi/politica-de-privacidade"
+                className="bg-github-accent-emphasis hover:bg-blue-700 text-white rounded-lg px-4 py-2 transition-colors duration-200 flex items-center"
+              >
+                <span>Política de Privacidade</span>
+                <ExternalLink className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

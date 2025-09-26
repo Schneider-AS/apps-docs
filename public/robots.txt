@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /
+
+# Este site não deve ser indexado por mecanismos de busca
+# Conteúdo restrito - Portal de documentação interna
+
+Sitemap:
